@@ -15,6 +15,12 @@ jsPsych.plugins.animation = (function() {
     name: 'animation',
     description: '',
     parameters: {
+      stimulus: {
+        type: jsPsych.plugins.parameterType.STRING,
+        pretty_name: "Stimulus",
+        default: undefined,
+        description: ""
+      },
       stimuli: {
         type: jsPsych.plugins.parameterType.STRING,
         pretty_name: 'Stimuli',
@@ -58,96 +64,26 @@ jsPsych.plugins.animation = (function() {
 
   plugin.trial = function(display_element, trial) {
 
-    var interval_time = trial.frame_time + trial.frame_isi;
-    var animate_frame = -1;
-    var reps = 0;
-    var startTime = performance.now();
-    var animation_sequence = [];
-    var responses = [];
-    var current_stim = "";
+    var random_int = Math.floor(Math.random() * Math.floor(10));
+    display_element.innerHTML = trial.stimulus;
 
-    var animate_interval = setInterval(function() {
-      var showImage = true;
-      display_element.innerHTML = ''; // clear everything
-      animate_frame++;
-      if (animate_frame == trial.stimuli.length) {
-        animate_frame = 0;
-        reps++;
-        if (reps >= trial.sequence_reps) {
-          endTrial();
-          clearInterval(animate_interval);
-          showImage = false;
+    var keyboardListener = jsPsych.pluginAPI.getKeyboardResponse({
+      callback_function: function(e){
+        if (typeof keyboardListener !== 'undefined') {
+          jsPsych.pluginAPI.cancelKeyboardResponse(keyboardListener);
         }
-      }
-      if (showImage) {
-        show_next_frame();
-      }
-    }, interval_time);
+        jsPsych.finishTrial()
 
-    function show_next_frame() {
-      // show image
-      display_element.innerHTML = '<img src="'+trial.stimuli[animate_frame]+'" id="jspsych-animation-image"></img>';
-
-      current_stim = trial.stimuli[animate_frame];
-
-      // record when image was shown
-      animation_sequence.push({
-        "stimulus": trial.stimuli[animate_frame],
-        "time": performance.now() - startTime
-      });
-
-      if (trial.prompt !== null) {
-        display_element.innerHTML += trial.prompt;
-      }
-
-      if (trial.frame_isi > 0) {
-        jsPsych.pluginAPI.setTimeout(function() {
-          display_element.querySelector('#jspsych-animation-image').style.visibility = 'hidden';
-          current_stim = 'blank';
-          // record when blank image was shown
-          animation_sequence.push({
-            "stimulus": 'blank',
-            "time": performance.now() - startTime
-          });
-        }, trial.frame_time);
-      }
-    }
-
-    var after_response = function(info) {
-
-      responses.push({
-        key_press: info.key,
-        rt: info.rt,
-        stimulus: current_stim
-      });
-
-      // after a valid response, the stimulus will have the CSS class 'responded'
-      // which can be used to provide visual feedback that a response was recorded
-      display_element.querySelector('#jspsych-animation-image').className += ' responded';
-    }
-
-    // hold the jspsych response listener object in memory
-    // so that we can turn off the response collection when
-    // the trial ends
-    var response_listener = jsPsych.pluginAPI.getKeyboardResponse({
-      callback_function: after_response,
-      valid_responses: trial.choices,
+      },
+      valid_responses: jsPsych.ALL_KEYS,
       rt_method: 'performance',
-      persist: true,
+      persist: false,
       allow_held_key: false
     });
 
-    function endTrial() {
 
-      jsPsych.pluginAPI.cancelKeyboardResponse(response_listener);
 
-      var trial_data = {
-        "animation_sequence": JSON.stringify(animation_sequence),
-        "responses": JSON.stringify(responses)
-      };
-
-      jsPsych.finishTrial(trial_data);
-    }
+   
   };
 
   return plugin;

@@ -5,6 +5,7 @@
 		<script src="jspsych-6.1.0/jspsych.js"></script>
 		<script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
 		<script src="jspsych-6.1.0/plugins/jspsych-cloze.js"></script>
+		<script src="jspsych-6.1.0/plugins/jspsych-animation.js"></script>
 		<link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
 	</head>
 	<body></body>
@@ -27,8 +28,9 @@
 		  	  "<p>In this experiment, five randomly ordered words will appear.</p>" +
 		  	  "<p>Your task is to rearrange the words in correct order as best you can.</p>" +
 		      "<p>For example:</p>" +
-		      '<img src="jspsych-6.1.0/css/img/opening_example.gif" width="780"></img>'+
-		      "<p>Press any key to continue.</p>",
+		      // '<img src="jspsych-6.1.0/css/img/opening_example.gif" width="780"></img>'+
+		      "<video width='852' height='480' controls><source src='sentence_example_video.mp4' type='video/mp4'></video>"+
+		      "<p>Press any key to begin the experiment.</p>",
 	      // post_trial_gap: 2000
 		};
 		timeline.push(instructions);
@@ -37,51 +39,54 @@
 		// Define notes trial
 		var notes = {
 		  type: "html-keyboard-response",
-		  stimulus: "<p>Note three things.</p>" +
-		  	  "<p>1. The selected words will only occur within sentence boundaries.</p>" +
-		      "<p>    For example, words will never be chosen in this manner:</p>"+
-		      "<p>    <em>She trained for <strong>ten years. He only did</strong> for two.</em></p>"+
-		      "<p>2. The selected words may occur at any starting point within a sentence.</p>" +
-		      "<p>    Any of the following selected words may be chosen:</p>" +
-		      "<p>    <em><strong>Last week in the attic,</strong> her dog sat on the rug.</em></p>" +
-		      "<p>    <em>Last <strong>week in the attic, her</strong> dog sat on the rug.</em></p>" +
-		      "<p>    <em>Last week <strong>in the attic, her dog</strong> sat on the rug.</em></p>" +
-		      "<p>    <em>Last week in <strong>the attic, her dog sat</strong> on the rug.</em></p>" +
-		      "<p>    <em>Last week in the <strong>attic, her dog sat on</strong> the rug.</em></p>" +
-		      "<p>    <em>Last week in the attic, <strong>her dog sat on the</strong> rug.</em></p>" +
-		      "<p>    <em>Last week in the attic, her <strong>dog sat on the rug.</strong></em></p>" +
-		      "<p>3. You may encounter words that have more than one grammatical order.</p>" +
-		      "<p>   Given <strong>at all not it was</strong>, for example, the following would be considered grammatical:</p>"+
-		      "<p>   <em><strong>all it was not at</strong></em></p>" +
-		      "<p>   <em><strong>it was not at all</strong></em></p>" + 
-		      "<p>   <em><strong>it was at not all</strong></em></p>" + 
-		      "<p>   <em><strong>it all was not at</strong></em></p>" + 
-		      "<p>   <em><strong>was it not at all</strong></em></p>" + 
-		      "<p>   <em><strong>was not at all it</strong></em></p>" + 
-		      "<p>   If you find multiple grammatical orders like this, go with any of them.</p>"+
+		  stimulus: "<p>Note two things.</p>" +
+		      "<p>1. The selected words may occur at any starting point within a sentence.</p>" +
+		      "<video width='852' height='480' controls><source src='note1_example_video.mp4' type='video/mp4'></video>"+
+		      // "<p>    Any of the following selected words may be chosen:</p>" +
+		      // "<p>    <em><strong>Last week in the attic,</strong> her dog sat on the rug.</em></p>" +
+		      // "<p>    <em>Last <strong>week in the attic, her</strong> dog sat on the rug.</em></p>" +
+		      // "<p>    <em>Last week <strong>in the attic, her dog</strong> sat on the rug.</em></p>" +
+		      // "<p>    <em>Last week in <strong>the attic, her dog sat</strong> on the rug.</em></p>" +
+		      // "<p>    <em>Last week in the <strong>attic, her dog sat on</strong> the rug.</em></p>" +
+		      // "<p>    <em>Last week in the attic, <strong>her dog sat on the</strong> rug.</em></p>" +
+		      // "<p>    <em>Last week in the attic, her <strong>dog sat on the rug.</strong></em></p>" +
+
+
+		      "<p>2. You may encounter words that have more than one correct order.</p>" +
+		      "<video width='852' height='480' controls><source src='note2_example_video.mp4' type='video/mp4'></video>"+
+		      // "<p>   Given <strong>at all not it was</strong>, for example, the following may be considered ordered correctly:</p>"+
+		      // "<p>  And worst of <em><strong>all, it was not at</strong></em> the post office.</p>" +
+		      // "<p>   According to Jim, <em><strong>it was not at all</strong></em> what he had anticipated.</p>" + 
+		      // "<p>   <em><strong>It was at not all</strong></em> of the booths.</p>" + 
+		      // "<p>   <em><strong>It all was not at</strong></em> the loading zone.</p>" + 
+		      // "<p>   <em><strong>Was it not at all</strong></em> what you'd thought it would be?</p>" + 
+		      // // "<p>   <em><strong>was not at all it</strong></em></p>" + 
+		      // "<p>   If you find multiple grammatical orders like this, go with any of them.</p>"+
+		  	  // "<p>3. The selected words will only occur within sentence boundaries.</p>" +
+		     //  "<p>    For example, words will never be chosen in this manner:</p>"+
+		     //  "<p>    <em>She trained for <strong>ten years. He only did</strong> for two.</em></p>"+
 		      "<p>Press any key to continue.</p>",
 	      post_trial_gap: 1000
 		};
 		timeline.push(notes);
 
-
 		var test_stimuli = [
-			{text: "<p id='word-choices'><a>have </a><a>mediums </a><a>badly </a><a>injured </a><a>been </a></p><p>%mediums%%have%%been%%badly%%injured% </p>"},
-{text: "<p id='word-choices'><a>have </a><a>mediums </a><a>badly </a><a>injured </a><a>been </a></p><p>%mediums%%have%%been%%badly%%injured%</p>"},
-{text: "<p id='word-choices'><a>whole </a><a>distorts </a><a>the </a><a>vision </a><a>for </a></p><p>%distorts%%the%%whole%%vision%%for%</p>"},
-{text: "<p id='word-choices'><a>bewildered </a><a>the </a><a>pirouettes </a><a>figures </a><a>when </a></p><p>%pirouettes%%when%%the%%figures%%bewildered%</p>"},
-{text: "<p id='word-choices'><a>her </a><a>neutralize </a><a>with </a><a>virtuous </a><a>audacity </a></p><p>%neutralize%%with%%her%%virtuous%%audacity%</p>"},
-{text: "<p id='word-choices'><a>as </a><a>recognisable </a><a>as </a><a>and </a><a>contoured </a></p><p>%contoured%%and%%as%%recognisable%%as%</p>"},
-{text: "<p id='word-choices'><a>evident </a><a>was </a><a>enough </a><a>that </a><a>his </a></p><p>%was%%evident%%enough%%that%%his%</p>"},
-{text: "<p id='word-choices'><a>that </a><a>does </a><a>me </a><a>any </a><a>make </a></p><p>%that%%does%%make%%me%%any%</p>"},
-{text: "<p id='word-choices'><a>is </a><a>delicate </a><a>nature </a><a>it </a><a>that </a></p><p>%delicate%%nature%%that%%it%%is%</p>"},
-{text: "<p id='word-choices'><a>during </a><a>entire </a><a>the </a><a>soldier </a><a>a </a></p><p>%a%%soldier%%during%%the%%entire%</p>"},
-{text: "<p id='word-choices'><a>by </a><a>enthusiasm </a><a>girl </a><a>of </a><a>a </a></p><p>%enthusiasm%%by%%a%%girl%%of%</p>"},
-{text: "<p id='word-choices'><a>at </a><a>of </a><a>the </a><a>the </a><a>sight </a></p><p>%at%%the%%sight%%of%%the%</p>"},
-{text: "<p id='word-choices'><a>any </a><a>this </a><a>other </a><a>or </a><a>work </a></p><p>%this%%work%%or%%any%%other%</p>"},
-{text: "<p id='word-choices'><a>in </a><a>of </a><a>and </a><a>the </a><a>spite </a></p><p>%and%%in%%spite%%of%%the%</p>"},
-{text: "<p id='word-choices'><a>a </a><a>deal </a><a>is </a><a>it </a><a>great </a></p><p>%it%%is%%a%%great%%deal%</p>"},
-{text: "<p id='word-choices'><a>a </a><a>and </a><a>was </a><a>that </a><a>he </a></p><p>%and%%that%%he%%was%%a%</p>"},
+			// {text: "<p id='word-choices'><a>have </a><a>mediums </a><a>badly </a><a>injured </a><a>been </a></p><p>%mediums%%have%%been%%badly%%injured% </p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"},
+{text: "<p id='word-choices'><a>have </a><a>mediums </a><a>badly </a><a>injured </a><a>been </a></p><p>%mediums%%have%%been%%badly%%injured%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"},
+{text: "<p id='word-choices'><a>whole </a><a>distorts </a><a>the </a><a>vision </a><a>for </a></p><p>%distorts%%the%%whole%%vision%%for%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"},
+{text: "<p id='word-choices'><a>bewildered </a><a>the </a><a>pirouettes </a><a>figures </a><a>when </a></p><p>%pirouettes%%when%%the%%figures%%bewildered%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"},
+{text: "<p id='word-choices'><a>her </a><a>neutralize </a><a>with </a><a>virtuous </a><a>audacity </a></p><p>%neutralize%%with%%her%%virtuous%%audacity%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"},
+{text: "<p id='word-choices'><a>as </a><a>recognisable </a><a>as </a><a>and </a><a>contoured </a></p><p>%contoured%%and%%as%%recognisable%%as%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"},
+{text: "<p id='word-choices'><a>evident </a><a>was </a><a>enough </a><a>that </a><a>his </a></p><p>%was%%evident%%enough%%that%%his%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"},
+// {text: "<p id='word-choices'><a>that </a><a>does </a><a>me </a><a>any </a><a>make </a></p><p>%that%%does%%make%%me%%any%</p>"},
+// {text: "<p id='word-choices'><a>is </a><a>delicate </a><a>nature </a><a>it </a><a>that </a></p><p>%delicate%%nature%%that%%it%%is%</p>"},
+// {text: "<p id='word-choices'><a>during </a><a>entire </a><a>the </a><a>soldier </a><a>a </a></p><p>%a%%soldier%%during%%the%%entire%</p>"},
+// {text: "<p id='word-choices'><a>by </a><a>enthusiasm </a><a>girl </a><a>of </a><a>a </a></p><p>%enthusiasm%%by%%a%%girl%%of%</p>"},
+// {text: "<p id='word-choices'><a>at </a><a>of </a><a>the </a><a>the </a><a>sight </a></p><p>%at%%the%%sight%%of%%the%</p>"},
+// {text: "<p id='word-choices'><a>any </a><a>this </a><a>other </a><a>or </a><a>work </a></p><p>%this%%work%%or%%any%%other%</p>"},
+// {text: "<p id='word-choices'><a>in </a><a>of </a><a>and </a><a>the </a><a>spite </a></p><p>%and%%in%%spite%%of%%the%</p>"},
+// {text: "<p id='word-choices'><a>a </a><a>deal </a><a>is </a><a>it </a><a>great </a></p><p>%it%%is%%a%%great%%deal%</p>"},
+// {text: "<p id='word-choices'><a>a </a><a>and </a><a>was </a><a>that </a><a>he </a></p><p>%and%%that%%he%%was%%a%</p>"},
 		];
 
 		var fixation = {
@@ -93,43 +98,85 @@
 	      },
 	      data: {test_part: 'fixation'}
 		};
-
 		var trial = {
 		    type: 'cloze',
 		    text: jsPsych.timelineVariable('text'),
-		    check_answers: false,
+		    check_answers: true,
 		    button_text: 'Next',
 		    on_load: function(trial){
+
 			    var isTesting = document.getElementsByClassName('cloze');
 			    var inputs = isTesting[0].childNodes[1].childNodes
 			    var words = isTesting[0].childNodes[0].childNodes
 			    var words_copy = words
 			    var words_array = []
-			    words.forEach(word => words_array.push(word.text.substring(0,word.text.length-1)))
+			    words.forEach(word => words_array.push(word.text.trim()))
 			    isTesting[0].childNodes[1].childNodes.forEach(inputBox => inputBox.addEventListener('keyup', isMatch))
+			    isTesting[0].childNodes[2].addEventListener('click', randomize)
+			    isTesting[0].childNodes[3].addEventListener('click', clear)
+
+
 			    function isMatch(e) {
 			    	text_input = e.target.value
 			    	var line_through = 0
+					console.log("text_input: "+text_input)
 			    	if (words_array.includes(text_input)) {
-			    		(words[words_array.indexOf(text_input)].style.textDecoration=="line-through" ? words[words_array.indexOf(text_input, words_array.indexOf(text_input)+1)].style.textDecoration="line-through" : words[words_array.indexOf(text_input)].style.textDecoration="line-through")
+			    		try{
+			    			console.log("words_array: "+words_array.toString());
+			    			;
+			    			var occurence = 0;
+			    			words_array.forEach(word => (text_input == word ? occurence++ : ''));
+			    			(occurence > 1 ? (words[words_array.indexOf(text_input)].style.textDecoration=="line-through" ? words[words_array.indexOf(text_input, words_array.indexOf(text_input)+1)].style.textDecoration="line-through" : words[words_array.indexOf(text_input)].style.textDecoration="line-through") : words[words_array.indexOf(text_input)].style.textDecoration="line-through");
+			    			
+			    		} catch(e){
+			    			console.log(e)
+			    		}
 			    	} else {
 			    		input_match = []
 			    		input_nonmatch = words_array.slice()
 			    		inputs.forEach(function(input) {
-			    			(words_array.includes(input.value) ? input_match.push(input.value) : '');
+			    			(words_array.includes(input.value.trim()) ? input_match.push(input.value.trim()) : '');
 			    			input_match.forEach(match => input_nonmatch.splice(input_nonmatch.indexOf(match)))
 			    			input_match.forEach(match => words[words_array.indexOf(match)].style.textDecoration="line-through")
 			    			input_nonmatch.forEach(nonmatch => words[words_array.indexOf(nonmatch)].style.textDecoration="none")
-
 			    		});
-
 			    	}
 			    }
-		    }
-		};
 
+			    function randomize(e) {
+					for (i = isTesting[0].childNodes[0].childNodes.length; i >= 0; i--) {
+					    isTesting[0].childNodes[0].appendChild(isTesting[0].childNodes[0].children[Math.random() * i | 0]);
+					}
+				    words = isTesting[0].childNodes[0].childNodes
+				    words_copy = words
+				    words_array = []
+				    words.forEach(word => words_array.push(word.text.substring(0,word.text.length-1)))
+			    }
+
+			    function clear(e) {
+			    	isTesting[0].childNodes[1].childNodes.forEach(inputBox => inputBox.value = "")
+				    input_nonmatch = words_array.slice()
+				    input_nonmatch.forEach(nonmatch => words[words_array.indexOf(nonmatch)].style.textDecoration="none")
+			    }
+		    },
+
+		};
+		var feedback = {
+		  type: 'animation',
+		  stimulus: function(){
+		    var last_trial_correct = jsPsych.data.getLastTrialData();
+		    if(last_trial_correct.values()[0].correct){
+		      var gifs = ['giphy_correct1.gif','giphy_correct2.gif','giphy_correct3.gif','giphy_correct4.gif','giphy_correct5.gif','giphy_correct6.gif','giphy_correct7.gif','giphy_correct8.gif','giphy_correct9.gif','giphy_correct10.gif']
+			  var random_int = Math.floor(Math.random() * Math.floor(10));
+		      return '<img src="'+gifs[random_int]+'" width=500</img><p>Press any key to continue.</p>';
+		    } else {
+		      return "<p>Wrong.</p><p>Press any key to continue.</p>"
+		    }
+		  },
+
+		};
 		var test_procedure = {
-		  timeline: [ trial],
+		  timeline: [ trial, feedback],
 		  timeline_variables: test_stimuli,
 		  randomize_order: true,
 		  repetitions: 1
@@ -155,6 +202,7 @@
 
 	    jsPsych.init({
 	      timeline: timeline,
+	      // show_progress_bar: true,
 	      on_finish: function() {
 	        jsPsych.data.displayData();
 	      }

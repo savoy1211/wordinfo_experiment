@@ -6,11 +6,11 @@
  *
  * documentation: docs.jspsych.org
  **/
+var score = 0;
 
 jsPsych.plugins['cloze'] = (function () {
 
     var plugin = {};
-
     plugin.info = {
         name: 'cloze',
         description: '',
@@ -38,6 +38,20 @@ jsPsych.plugins['cloze'] = (function () {
                 pretty_name: 'Mistake function',
                 default: function () {},
                 description: 'Function called if check_answers is set to TRUE and there is a difference between the participants answers and the correct solution provided in the text.'
+            },
+            data: {
+                correct: {
+                    type: jsPsych.plugins.parameterType.BOOL,
+                    pretty_name: 'Correct Answer',
+                    default: false,
+                    description: "Indicates whether the participant answered correctly or not."
+                },
+                total_score: {
+                    type: jsPsych.plugins.parameterType.INT,
+                    pretty_name: "Score",
+                    default: score,
+                    description: "Number of points indicating total number of correct answers."
+                }
             }
         }
     };
@@ -47,7 +61,6 @@ jsPsych.plugins['cloze'] = (function () {
         var html = '<div class="cloze">';
         var elements = trial.text.split('%');
         var solutions = [];
-
         for (i=0; i<elements.length; i++)
         {
             if (i%2 === 0)
@@ -60,7 +73,7 @@ jsPsych.plugins['cloze'] = (function () {
                 html += '<input type="text" id="input'+(solutions.length-1)+'" value="">';
             }
         }
-        html += '</div>';
+        html += '<p>Score: <a>'+score.toString()+'</a></p></div>';
         
         display_element.innerHTML = html;
                 
@@ -78,20 +91,28 @@ jsPsych.plugins['cloze'] = (function () {
                 {
                     if (answers[i] !== solutions[i])
                     {
-                        field.style.color = 'red';
+                        // field.style.color = 'red';
                         answers_correct = false;
                     }
                     else
                     {
                         field.style.color = 'black';
                     }
+                    if (!solutions.includes(answers[i])) {
+                        alert("Make sure each input matches one of the given words!")
+                        return;
+                    }
                 }
             }
             
+            console.log(score)
             if (!trial.check_answers || (trial.check_answers && answers_correct))
             {
+                score++;
                 var trial_data = {
-                    'answers' : answers
+                    'answers' : answers,
+                    'correct': true,
+                    'total_score': score
                 };
 
                 display_element.innerHTML = '';
@@ -99,7 +120,14 @@ jsPsych.plugins['cloze'] = (function () {
             }
             else
             {
-                trial.mistake_fn();
+                var trial_data = {
+                    'answers' : answers,
+                    'correct': false,
+                    'total_score': score
+                };
+                display_element.innerHTML = '';
+                jsPsych.finishTrial(trial_data);
+
             }
                 
         };
