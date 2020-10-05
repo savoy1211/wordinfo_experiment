@@ -29,8 +29,8 @@
 		  	  "<p>Your task is to rearrange the words in correct order as best you can.</p>" +
 		      "<p>For example:</p>" +
 		      // '<img src="jspsych-6.1.0/css/img/opening_example.gif" width="780"></img>'+
-		      "<video width='852' height='480' controls><source src='sentence_example_video.mp4' type='video/mp4'></video>"+
-		      "<p>Press any key to begin the experiment.</p>",
+		      "<video width='852' height='480' controls><source src='sentence_example_(quicker).mp4' type='video/mp4'></video>"+
+		      "<p>Press any key to continue with the instructions.</p>",
 	      // post_trial_gap: 2000
 		};
 		timeline.push(instructions);
@@ -41,53 +41,48 @@
 		  type: "html-keyboard-response",
 		  stimulus: "<p>Note two things.</p>" +
 		      "<p>1. The selected words may occur at any starting point within a sentence.</p>" +
-		      "<video width='852' height='480' controls><source src='note1_example_video.mp4' type='video/mp4'></video>"+
-		      // "<p>    Any of the following selected words may be chosen:</p>" +
-		      // "<p>    <em><strong>Last week in the attic,</strong> her dog sat on the rug.</em></p>" +
-		      // "<p>    <em>Last <strong>week in the attic, her</strong> dog sat on the rug.</em></p>" +
-		      // "<p>    <em>Last week <strong>in the attic, her dog</strong> sat on the rug.</em></p>" +
-		      // "<p>    <em>Last week in <strong>the attic, her dog sat</strong> on the rug.</em></p>" +
-		      // "<p>    <em>Last week in the <strong>attic, her dog sat on</strong> the rug.</em></p>" +
-		      // "<p>    <em>Last week in the attic, <strong>her dog sat on the</strong> rug.</em></p>" +
-		      // "<p>    <em>Last week in the attic, her <strong>dog sat on the rug.</strong></em></p>" +
-
-
+		      "<video width='852' height='480' controls><source src='note1_example_(quicker).mp4' type='video/mp4'></video>"+
 		      "<p>2. You may encounter words that have more than one correct order.</p>" +
-		      "<video width='852' height='480' controls><source src='note2_example_video.mp4' type='video/mp4'></video>"+
-		      // "<p>   Given <strong>at all not it was</strong>, for example, the following may be considered ordered correctly:</p>"+
-		      // "<p>  And worst of <em><strong>all, it was not at</strong></em> the post office.</p>" +
-		      // "<p>   According to Jim, <em><strong>it was not at all</strong></em> what he had anticipated.</p>" + 
-		      // "<p>   <em><strong>It was at not all</strong></em> of the booths.</p>" + 
-		      // "<p>   <em><strong>It all was not at</strong></em> the loading zone.</p>" + 
-		      // "<p>   <em><strong>Was it not at all</strong></em> what you'd thought it would be?</p>" + 
-		      // // "<p>   <em><strong>was not at all it</strong></em></p>" + 
-		      // "<p>   If you find multiple grammatical orders like this, go with any of them.</p>"+
-		  	  // "<p>3. The selected words will only occur within sentence boundaries.</p>" +
-		     //  "<p>    For example, words will never be chosen in this manner:</p>"+
-		     //  "<p>    <em>She trained for <strong>ten years. He only did</strong> for two.</em></p>"+
+		      "<video width='852' height='480' controls><source src='note2_example_final.mp4' type='video/mp4'></video>"+
 		      "<p>Press any key to continue.</p>",
 	      post_trial_gap: 1000
 		};
 		timeline.push(notes);
 
-		var test_stimuli = [
-			// {text: "<p id='word-choices'><a>have </a><a>mediums </a><a>badly </a><a>injured </a><a>been </a></p><p>%mediums%%have%%been%%badly%%injured% </p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"},
-{text: "<p id='word-choices'><a>have </a><a>mediums </a><a>badly </a><a>injured </a><a>been </a></p><p>%mediums%%have%%been%%badly%%injured%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"},
-{text: "<p id='word-choices'><a>whole </a><a>distorts </a><a>the </a><a>vision </a><a>for </a></p><p>%distorts%%the%%whole%%vision%%for%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"},
-{text: "<p id='word-choices'><a>bewildered </a><a>the </a><a>pirouettes </a><a>figures </a><a>when </a></p><p>%pirouettes%%when%%the%%figures%%bewildered%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"},
-{text: "<p id='word-choices'><a>her </a><a>neutralize </a><a>with </a><a>virtuous </a><a>audacity </a></p><p>%neutralize%%with%%her%%virtuous%%audacity%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"},
-{text: "<p id='word-choices'><a>as </a><a>recognisable </a><a>as </a><a>and </a><a>contoured </a></p><p>%contoured%%and%%as%%recognisable%%as%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"},
-{text: "<p id='word-choices'><a>evident </a><a>was </a><a>enough </a><a>that </a><a>his </a></p><p>%was%%evident%%enough%%that%%his%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"},
-// {text: "<p id='word-choices'><a>that </a><a>does </a><a>me </a><a>any </a><a>make </a></p><p>%that%%does%%make%%me%%any%</p>"},
-// {text: "<p id='word-choices'><a>is </a><a>delicate </a><a>nature </a><a>it </a><a>that </a></p><p>%delicate%%nature%%that%%it%%is%</p>"},
-// {text: "<p id='word-choices'><a>during </a><a>entire </a><a>the </a><a>soldier </a><a>a </a></p><p>%a%%soldier%%during%%the%%entire%</p>"},
-// {text: "<p id='word-choices'><a>by </a><a>enthusiasm </a><a>girl </a><a>of </a><a>a </a></p><p>%enthusiasm%%by%%a%%girl%%of%</p>"},
-// {text: "<p id='word-choices'><a>at </a><a>of </a><a>the </a><a>the </a><a>sight </a></p><p>%at%%the%%sight%%of%%the%</p>"},
-// {text: "<p id='word-choices'><a>any </a><a>this </a><a>other </a><a>or </a><a>work </a></p><p>%this%%work%%or%%any%%other%</p>"},
-// {text: "<p id='word-choices'><a>in </a><a>of </a><a>and </a><a>the </a><a>spite </a></p><p>%and%%in%%spite%%of%%the%</p>"},
-// {text: "<p id='word-choices'><a>a </a><a>deal </a><a>is </a><a>it </a><a>great </a></p><p>%it%%is%%a%%great%%deal%</p>"},
-// {text: "<p id='word-choices'><a>a </a><a>and </a><a>was </a><a>that </a><a>he </a></p><p>%and%%that%%he%%was%%a%</p>"},
-		];
+		var most_likely = [{text: "<p id='word-choices'><a>will </a><a>me </a><a>come </a><a>you </a><a>to </a></p><p>%you%%will%%come%%to%%me%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>had </a><a>be </a><a>taken </a><a>he </a><a>to </a></p><p>%he%%had%%to%%be%%taken%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>order </a><a>get </a><a>to </a><a>in </a><a>to </a></p><p>%in%%order%%to%%get%%to%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>is </a><a>it </a><a>necessary </a><a>to </a><a>not </a></p><p>%it%%is%%not%%necessary%%to%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>how </a><a>she </a><a>not </a><a>could </a><a>understand </a></p><p>%she%%could%%not%%understand%%how%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>a </a><a>more </a><a>great </a><a>of </a><a>deal </a></p><p>%a%%great%%deal%%more%%of%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>done </a><a>he </a><a>that </a><a>had </a><a>his </a></p><p>%that%%he%%had%%done%%his%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>able </a><a>be </a><a>that </a><a>to </a><a>believe </a></p><p>%be%%able%%to%%believe%%that%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>his </a><a>not </a><a>did </a><a>know </a><a>that </a></p><p>%did%%not%%know%%that%%his%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>would </a><a>not </a><a>he </a><a>that </a><a>understand </a></p><p>%that%%he%%would%%not%%understand%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>it </a><a>was </a><a>with </a><a>so </a><a>not </a></p><p>%it%%was%%not%%so%%with%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>his </a><a>he </a><a>back </a><a>went </a><a>to </a></p><p>%he%%went%%back%%to%%his%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>and </a><a>it </a><a>was </a><a>just </a><a>as </a></p><p>%and%%it%%was%%just%%as%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>his </a><a>that </a><a>of </a><a>spite </a><a>in </a></p><p>%that%%in%%spite%%of%%his%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>that </a><a>felt </a><a>he </a><a>he </a><a>was </a></p><p>%he%%felt%%that%%he%%was%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>do </a><a>know </a><a>what </a><a>to </a><a>to </a></p><p>%to%%know%%what%%to%%do%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>as </a><a>the </a><a>in </a><a>as </a><a>well </a></p><p>%as%%well%%as%%in%%the%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>the </a><a>of </a><a>rest </a><a>world </a><a>the </a></p><p>%the%%rest%%of%%the%%world%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>be </a><a>and </a><a>will </a><a>not </a><a>you </a></p><p>%and%%you%%will%%not%%be%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>time </a><a>there </a><a>no </a><a>to </a><a>was </a></p><p>%there%%was%%no%%time%%to%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, ]
+		var least_likely = [{text: "<p id='word-choices'><a>and </a><a>would </a><a>some </a><a>load </a><a>choppers </a></p><p>%choppers%%would%%load%%and%%some%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>the </a><a>its </a><a>south </a><a>upon </a><a>aggressions </a></p><p>%aggressions%%upon%%the%%south%%its%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>and </a><a>romance </a><a>our </a><a>idealize </a><a>our </a></p><p>%idealize%%our%%romance%%and%%our%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>its </a><a>company </a><a>has </a><a>paid </a><a>coaling </a></p><p>%coaling%%company%%has%%paid%%its%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>which </a><a>had </a><a>centuries </a><a>southernly </a><a>world </a></p><p>%southernly%%world%%which%%had%%centuries%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>worse </a><a>the </a><a>ineptitudes </a><a>thinks </a><a>or </a></p><p>%ineptitudes%%or%%thinks%%the%%worse%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>falsifies </a><a>traits </a><a>certain </a><a>itself </a><a>for </a></p><p>%falsifies%%for%%itself%%certain%%traits%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>circumstances </a><a>the </a><a>of </a><a>concatenation </a><a>needed </a></p><p>%concatenation%%of%%circumstances%%needed%%the%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>hear </a><a>dreadful </a><a>to </a><a>oaths </a><a>vociferating </a></p><p>%vociferating%%oaths%%dreadful%%to%%hear%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>actions </a><a>our </a><a>shine </a><a>moralities </a><a>alternately </a></p><p>%moralities%%our%%actions%%shine%%alternately%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>not </a><a>console </a><a>rings </a><a>turquoise </a><a>would </a></p><p>%turquoise%%rings%%would%%not%%console%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>he </a><a>his </a><a>summarize </a><a>views </a><a>as </a></p><p>%summarize%%his%%views%%as%%he%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>question </a><a>concessionnaires </a><a>goes </a><a>in </a><a>are </a></p><p>%concessionnaires%%are%%in%%question%%goes%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>will </a><a>or </a><a>attach </a><a>learner </a><a>himself </a></p><p>%learner%%or%%will%%attach%%himself%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>displayed </a><a>gentle </a><a>quiet </a><a>a </a><a>fielding </a></p><p>%fielding%%displayed%%a%%quiet%%gentle%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>little </a><a>this </a><a>foreword </a><a>the </a><a>volume </a></p><p>%foreword%%this%%little%%volume%%the%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>ornamental </a><a>rim </a><a>the </a><a>to </a><a>pipe </a></p><p>%ornamental%%rim%%to%%the%%pipe%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>avaricious </a><a>unfeeling </a><a>imminently </a><a>his </a><a>and </a></p><p>%imminently%%his%%avaricious%%and%%unfeeling%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>environment </a><a>of </a><a>author </a><a>shaper </a><a>and </a></p><p>%shaper%%and%%author%%of%%environment%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>under </a><a>as </a><a>children </a><a>it </a><a>menageries </a></p><p>%menageries%%under%%it%%as%%children%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, ]
+		var mid_likely = [{text: "<p id='word-choices'><a>a </a><a>and </a><a>minute </a><a>quiet </a><a>take </a></p><p>%take%%a%%quiet%%minute%%and%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>the </a><a>the </a><a>slow </a><a>of </a><a>rise </a></p><p>%the%%slow%%rise%%of%%the%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>he </a><a>and </a><a>though </a><a>my </a><a>met </a></p><p>%met%%though%%he%%and%%my%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>is </a><a>diligent </a><a>most </a><a>famous </a><a>a </a></p><p>%most%%famous%%is%%a%%diligent%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>and </a><a>some </a><a>comfort </a><a>are </a><a>my </a></p><p>%are%%my%%comfort%%and%%some%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>them </a><a>both </a><a>human </a><a>nature </a><a>that </a></p><p>%them%%that%%both%%human%%nature%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>desperate </a><a>last </a><a>enemy </a><a>made </a><a>a </a></p><p>%enemy%%made%%a%%last%%desperate%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>the </a><a>campaign </a><a>with </a><a>wilderness </a><a>connected </a></p><p>%connected%%with%%the%%wilderness%%campaign%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>race </a><a>the </a><a>statistics </a><a>of </a><a>the </a></p><p>%the%%race%%statistics%%of%%the%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>has </a><a>something </a><a>to </a><a>happened </a><a>dreadful </a></p><p>%something%%dreadful%%has%%happened%%to%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>no </a><a>obstruction </a><a>us </a><a>between </a><a>with </a></p><p>%with%%no%%obstruction%%between%%us%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>risk </a><a>a </a><a>she </a><a>such </a><a>might </a></p><p>%she%%might%%risk%%such%%a%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>stood </a><a>and </a><a>was </a><a>in </a><a>corner </a></p><p>%stood%%in%%corner%%and%%was%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>try </a><a>book </a><a>and </a><a>only </a><a>not </a></p><p>%book%%and%%try%%not%%only%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>can </a><a>thank </a><a>you </a><a>for </a><a>enough </a></p><p>%can%%thank%%you%%enough%%for%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>capture </a><a>it </a><a>again </a><a>and </a><a>give </a></p><p>%capture%%it%%again%%and%%give%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>having </a><a>them </a><a>shall </a><a>regard </a><a>as </a></p><p>%shall%%regard%%them%%as%%having%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>and </a><a>lust </a><a>in </a><a>of </a><a>adventure </a></p><p>%lust%%of%%adventure%%and%%in%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>she </a><a>notable </a><a>that </a><a>though </a><a>never </a></p><p>%notable%%that%%though%%she%%never%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, {text: "<p id='word-choices'><a>her </a><a>is </a><a>temper </a><a>that </a><a>intractable </a></p><p>%that%%her%%temper%%is%%intractable%</p><button class='randomize'>Randomize word order</button><button class='clear'>Clear</button>"}, ]
+		var test_stimuli = []
+
+		function shuffle(array) {
+		  var currentIndex = array.length, temporaryValue, randomIndex;
+
+		  // While there remain elements to shuffle...
+		  while (0 !== currentIndex) {
+
+		    // Pick a remaining element...
+		    randomIndex = Math.floor(Math.random() * currentIndex);
+		    currentIndex -= 1;
+
+		    // And swap it with the current element.
+		    temporaryValue = array[currentIndex];
+		    array[currentIndex] = array[randomIndex];
+		    array[randomIndex] = temporaryValue;
+		  }
+
+		  return array;
+		}
+
+		shuffle(least_likely)
+		shuffle(mid_likely)
+		shuffle(most_likely)
+		var first_set = most_likely.slice(0,3)
+		var pre_remaining_set = most_likely.slice(3).concat(mid_likely).concat(least_likely)
+		shuffle(pre_remaining_set)
+		var remaining_set = pre_remaining_set
+		test_stimuli = test_stimuli.concat(first_set)
+
+		// test_stimuli = test_stimuli.concat(first_set).concat(remaining_set)
 
 		var fixation = {
 		  type: 'html-keyboard-response',
@@ -114,7 +109,6 @@
 			    isTesting[0].childNodes[1].childNodes.forEach(inputBox => inputBox.addEventListener('keyup', isMatch))
 			    isTesting[0].childNodes[2].addEventListener('click', randomize)
 			    isTesting[0].childNodes[3].addEventListener('click', clear)
-
 
 			    function isMatch(e) {
 			    	text_input = e.target.value
@@ -178,7 +172,7 @@
 		var test_procedure = {
 		  timeline: [ trial, feedback],
 		  timeline_variables: test_stimuli,
-		  randomize_order: true,
+		  randomize_order: false,
 		  repetitions: 1
 		};
 		timeline.push(test_procedure);
@@ -190,26 +184,54 @@
 		    var trials = jsPsych.data.get().filter({test_part: 'test'});
 		    var correct_trials = trials.filter({correct: true});
 		    var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
-		    var rt = Math.round(correct_trials.select('rt').mean());
+		    var rt = Math.round(correct_trials.select('time_elapsed').mean())/1000;
 
 		    return "<p>You responded correctly on "+accuracy+"% of the trials.</p>"+
-		    "<p>Your average response time was "+rt+"ms.</p>"+
+		    "<p>Your average response time was "+rt+"s.</p>"+
 		    "<p>Press any key to complete the experiment. Thank you!</p>";
 
 		  }
 		};
 		timeline.push(debrief_block);
 
-	    jsPsych.init({
-	      timeline: timeline,
-	      // show_progress_bar: true,
-	      on_finish: function() {
-	        jsPsych.data.displayData();
-	      }
-	    });
+		function create_UUID(){
+		    var dt = new Date().getTime();
+		    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+		        var r = (dt + Math.random()*16)%16 | 0;
+		        dt = Math.floor(dt/16);
+		        return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+		    });
+		    return uuid;
+		}
+		const uid = create_UUID()
+		var file_name = "experiment_data_"+uid
 
+		function saveData(name, data){
+		  var xhr = new XMLHttpRequest();
+		  xhr.open('POST', 'submit.php'); // 'write_data.php' is the path to the php file described above.
+		  xhr.setRequestHeader('Content-Type', 'application/json');
+		  xhr.send(JSON.stringify({filename: name, filedata: data}));
+		}
 
+		// call the saveData function after the experiment is over
+		jsPsych.init({
+	       timeline: timeline,
 
+		   // code to define the experiment structure would go here...
+		   on_finish: function(){ 
+	           jsPsych.data.displayData()
+		   	   saveData(file_name, jsPsych.data.get().csv()); 
+		   	}
+		});
+
+	    // jsPsych.init({
+	    //   timeline: timeline,
+	    //   // show_progress_bar: true,
+	    //   on_finish: function() {
+	    //     jsPsych.data.displayData();
+	    //     saveData()
+	    //   }
+	    // });
 
 	</script>
 </html>

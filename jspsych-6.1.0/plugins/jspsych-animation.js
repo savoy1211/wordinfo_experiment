@@ -78,7 +78,8 @@ jsPsych.plugins.animation = (function() {
       valid_responses: jsPsych.ALL_KEYS,
       rt_method: 'performance',
       persist: false,
-      allow_held_key: false
+      allow_held_key: false,
+      correct: false
     });
 
 

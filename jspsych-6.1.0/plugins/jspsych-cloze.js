@@ -7,7 +7,7 @@
  * documentation: docs.jspsych.org
  **/
 var score = 0;
-
+var trial_num = 1;
 jsPsych.plugins['cloze'] = (function () {
 
     var plugin = {};
@@ -57,10 +57,11 @@ jsPsych.plugins['cloze'] = (function () {
     };
 
     plugin.trial = function (display_element, trial) {
-
+        console.log(jsPsych.currentTrial())
         var html = '<div class="cloze">';
         var elements = trial.text.split('%');
         var solutions = [];
+
         for (i=0; i<elements.length; i++)
         {
             if (i%2 === 0)
@@ -70,12 +71,14 @@ jsPsych.plugins['cloze'] = (function () {
             else
             {
                 solutions.push(elements[i].trim());
+
                 html += '<input type="text" id="input'+(solutions.length-1)+'" value="">';
             }
         }
         html += '<p>Score: <a>'+score.toString()+'</a></p></div>';
         
-        display_element.innerHTML = html;
+        var trial_count = '<p>Trial #'+trial_num+' out of 60</p>'
+        display_element.innerHTML = trial_count + html;
                 
         var check = function() {
 
@@ -105,11 +108,12 @@ jsPsych.plugins['cloze'] = (function () {
                 }
             }
             
-            console.log(score)
+            trial_num++;
             if (!trial.check_answers || (trial.check_answers && answers_correct))
             {
                 score++;
                 var trial_data = {
+                    'test_part': 'test',
                     'answers' : answers,
                     'correct': true,
                     'total_score': score
@@ -121,6 +125,7 @@ jsPsych.plugins['cloze'] = (function () {
             else
             {
                 var trial_data = {
+                    'test_part': 'test',
                     'answers' : answers,
                     'correct': false,
                     'total_score': score
