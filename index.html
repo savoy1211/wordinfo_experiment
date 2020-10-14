@@ -106,7 +106,7 @@
 			    var words_copy = words
 			    var words_array = []
 			    words.forEach(word => words_array.push(word.text.trim()))
-			    isTesting[0].childNodes[1].childNodes.forEach(inputBox => inputBox.addEventListener('keyup', isMatch))
+			    isTesting[0].childNodes[1].childNodes.forEach(inputBox => inputBox.addEventListener('keyup',isMatch))
 			    isTesting[0].childNodes[2].addEventListener('click', randomize)
 			    isTesting[0].childNodes[3].addEventListener('click', clear)
 
@@ -216,9 +216,9 @@
 		// call the saveData function after the experiment is over
 		jsPsych.init({
 	       timeline: timeline,
-
 		   // code to define the experiment structure would go here...
-            on_finish: function () {                
+            on_finish: function () {    
+			    saveData(file_name, jsPsych.data.get())
                 document.body.innerHTML = '<p> Please wait. You will be redirected back to Prolific in a few moments.</p>'
                 setTimeout(function () { location.href = "https://app.prolific.co/submissions/complete?cc=55132A98" }, 3000)
             }
