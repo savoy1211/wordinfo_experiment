@@ -218,13 +218,10 @@
 	       timeline: timeline,
 
 		   // code to define the experiment structure would go here...
-		   // on_finish: function(){ 
-		   // 	   saveData(file_name, jsPsych.data.get().csv()); 
-			  //  jsPsych.endExperiment("-")
-		   // 	   // saveData();
-		   // 	   // var d = jsPsych.data.get()
-	    //        // jsPsych.data.displayData()
-		   // 	}
+            on_finish: function () {                
+                document.body.innerHTML = '<p> Please wait. You will be redirected back to Prolific in a few moments.</p>'
+                setTimeout(function () { location.href = "https://app.prolific.co/submissions/complete?cc=55132A98" }, 3000)
+            }
 		});
 		// jsPsych.endExperiment("-")
 
