@@ -143,7 +143,7 @@ jsPsych.plugins['cloze'] = (function () {
             }
         }
 
-        display_element.innerHTML += '<br><button class="jspsych-html-button-response-button" type="button" id="finish_cloze_button">'+trial.button_text+'</button>';
+        display_element.innerHTML += '<br><button class="jspsych-html-button-response-button" type="button" id="finish_cloze_button">'+trial.button_text+'</button><p style="font-size:10.5px;">Click Next or press Enter</p>';
         display_element.querySelector('.cloze').addEventListener('keydown', enter_check);
         display_element.querySelector('#finish_cloze_button').addEventListener('click', check);
 

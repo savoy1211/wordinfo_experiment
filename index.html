@@ -19,7 +19,7 @@
 		// Define welcome message trial
 		var welcome = {
 			type: 'html-keyboard-response',
-			stimulus: 'Welcome to the experiment. Press any key to begin.'
+			stimulus: 'Welcome to the experiment. Press spacebar to begin.'
 		};
 		timeline.push(welcome);
 
@@ -32,7 +32,7 @@
 		      "<p>For example:</p>" +
 		      // '<img src="jspsych-6.1.0/css/img/opening_example.gif" width="780"></img>'+
 		      "<video width='852' height='480' controls><source src='sentence_example_(quicker).mp4' type='video/mp4'></video>"+
-		      "<p>Press any key to continue with the instructions.</p>",
+		      "<p>Press spacebar to continue with the instructions.</p>",
 	      // post_trial_gap: 2000
 		};
 		timeline.push(instructions);
@@ -46,7 +46,7 @@
 		      "<video width='852' height='480' controls><source src='note1_example_(quicker).mp4' type='video/mp4'></video>"+
 		      "<p>2. You may encounter words that have more than one correct order.</p>" +
 		      "<video width='852' height='480' controls><source src='note2_example_final.mp4' type='video/mp4'></video>"+
-		      "<p>Press any key to continue.</p>",
+		      "<p>Press spacebar to continue.</p>",
 	      post_trial_gap: 1000
 		};
 		timeline.push(notes);
@@ -78,7 +78,8 @@
 
 		function get_trial_text(ordered, shuffled) {
 			var random_words_string = shuffled.join(' </a><a>');
-			var random_words_string = '<a>' + random_words_string + '</a>'
+			var random_words_string = '<a>' + random_words_string + ' </a>'
+			// console.log(random_words_string)
 			var output_1 = '<p id=\'word-choices\'>'+random_words_string+"</p>"
 			var output_2 = "<p>"
 			ordered.forEach(function(each){
@@ -108,11 +109,11 @@
 		shuffle(most_likely)
 		var first_set = most_likely.slice(0,3)
 		var pre_remaining_set = most_likely.slice(3).concat(mid_likely).concat(least_likely)
+		// var pre_remaining_set = most_likely.concat(mid_likely).concat(least_likely)
 		shuffle(pre_remaining_set)
 		var remaining_set = pre_remaining_set
 		test_stimuli = test_stimuli.concat(first_set)
-
-		// test_stimuli = test_stimuli.concat(first_set).concat(remaining_set)
+		// test_stimuli = test_stimuli.concat(remaining_set)
 
 		var fixation = {
 		  type: 'html-keyboard-response',
@@ -192,9 +193,9 @@
 		    if(last_trial_correct.values()[0].correct){
 		      var gifs = ['giphy_correct1.gif','giphy_correct2.gif','giphy_correct3.gif','giphy_correct4.gif','giphy_correct5.gif','giphy_correct6.gif','giphy_correct7.gif','giphy_correct8.gif','giphy_correct9.gif','giphy_correct10.gif']
 			  var random_int = Math.floor(Math.random() * Math.floor(10));
-		      return '<img src="'+gifs[random_int]+'" width=500</img><p>Press any key to continue.</p>';
+		      return '<img src="'+gifs[random_int]+'" width=500</img><p>Press spacebar to continue.</p>';
 		    } else {
-		      return "<p>Wrong.</p><p>Press any key to continue.</p>"
+		      return "<p>Wrong.</p><p>Press spacebar to continue.</p>"
 		    }
 		  },
 

@@ -75,7 +75,7 @@ jsPsych.plugins.animation = (function() {
         jsPsych.finishTrial()
 
       },
-      valid_responses: jsPsych.ALL_KEYS,
+      valid_responses: [' '],
       rt_method: 'performance',
       persist: false,
       allow_held_key: false,
