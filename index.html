@@ -220,9 +220,10 @@
 		   // code to define the experiment structure would go here...
 		   on_finish: function(){ 
 		   	   saveData(file_name, jsPsych.data.get().csv()); 
-	           jsPsych.data.displayData()
+	           // jsPsych.data.displayData()
 		   	}
 		});
+		jsPsych.endExperiment("-")
 
 	    // jsPsych.init({
 	    //   timeline: timeline,
