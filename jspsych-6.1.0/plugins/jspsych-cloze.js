@@ -137,8 +137,16 @@ jsPsych.plugins['cloze'] = (function () {
                 
         };
         
+        var enter_check = function(e) {
+            if (e.keyCode === 13) {
+              check();
+            }
+        }
+
         display_element.innerHTML += '<br><button class="jspsych-html-button-response-button" type="button" id="finish_cloze_button">'+trial.button_text+'</button>';
+        display_element.querySelector('.cloze').addEventListener('keydown', enter_check);
         display_element.querySelector('#finish_cloze_button').addEventListener('click', check);
+
     };
 
     return plugin;

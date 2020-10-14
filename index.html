@@ -6,6 +6,8 @@
 		<script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
 		<script src="jspsych-6.1.0/plugins/jspsych-cloze.js"></script>
 		<script src="jspsych-6.1.0/plugins/jspsych-animation.js"></script>
+		<script src="https://proliferate.alps.science/static/js/proliferate.js" type="text/javascript"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
 	</head>
 	<body></body>
@@ -217,8 +219,8 @@
 		jsPsych.init({
 	       timeline: timeline,
 		   // code to define the experiment structure would go here...
-            on_finish: function () {    
-			    saveData(file_name, jsPsych.data.get())
+            on_finish: function (data) {    
+            	proliferate.submit({"trials": data.values()});
                 document.body.innerHTML = '<p> Please wait. You will be redirected back to Prolific in a few moments.</p>'
                 setTimeout(function () { location.href = "https://app.prolific.co/submissions/complete?cc=55132A98" }, 3000)
             }
