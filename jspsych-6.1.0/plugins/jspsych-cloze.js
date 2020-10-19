@@ -114,7 +114,7 @@ jsPsych.plugins['cloze'] = (function () {
                 score++;
                 var trial_data = {
                     'test_part': 'test',
-                    'answers' : answers,
+                    'response' : answers,
                     'solution': solutions,
                     'correct': true,
                     'total_score': score
@@ -127,7 +127,7 @@ jsPsych.plugins['cloze'] = (function () {
             {
                 var trial_data = {
                     'test_part': 'test',
-                    'answers' : answers,
+                    'response' : answers,
                     'solution': solutions,
                     'correct': false,
                     'total_score': score
