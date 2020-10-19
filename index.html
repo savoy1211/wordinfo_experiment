@@ -3,6 +3,7 @@
 	<head>
 		<title>My experiment</title>
 		<script src="jspsych-6.1.0/jspsych.js"></script>
+		<script src="jspsych-6.1.0/plugins/jspsych-survey-text.js"></script>
 		<script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
 		<script src="jspsych-6.1.0/plugins/jspsych-cloze.js"></script>
 		<script src="jspsych-6.1.0/plugins/jspsych-animation.js"></script>
@@ -15,6 +16,15 @@
 		
 		// The timeline array contains the set of trials we want to run in the experiment
 		var timeline = [];	
+
+		var ppn_form = {
+			type: 'survey-text',
+			questions: [{prompt: "Please enter your participant number.", name: "ppn"}],
+			on_finish: function(data){
+				ppn = JSON.parse(data['responses'])['ppn'] // get ppn from trial data
+			}
+		};
+		timeline.push(ppn_form)
 
 		// Define welcome message trial
 		var welcome = {
@@ -51,6 +61,9 @@
 		};
 		timeline.push(notes);
 
+
+
+
 		var most_likely_pre = [['you', 'will', 'come', 'to', 'me'],['he', 'had', 'to', 'be', 'taken'],['in', 'order', 'to', 'get', 'to'],['it', 'is', 'not', 'necessary', 'to'],['she', 'could', 'not', 'understand', 'how'],['a', 'great', 'deal', 'more', 'of'],['that', 'he', 'had', 'done', 'his'],['be', 'able', 'to', 'believe', 'that'],['did', 'not', 'know', 'that', 'his'],['that', 'he', 'would', 'not', 'understand'],['it', 'was', 'not', 'so', 'with'],['he', 'went', 'back', 'to', 'his'],['and', 'it', 'was', 'just', 'as'],['that', 'in', 'spite', 'of', 'his'],['he', 'felt', 'that', 'he', 'was'],['to', 'know', 'what', 'to', 'do'],['as', 'well', 'as', 'in', 'the'],['the', 'rest', 'of', 'the', 'world'],['and', 'you', 'will', 'not', 'be'],['there', 'was', 'no', 'time', 'to']]
 
 		var mid_likely_pre = [['take', 'a', 'quiet', 'minute', 'and'],['the', 'slow', 'rise', 'of', 'the'],['met', 'though', 'he', 'and', 'my'],['most', 'famous', 'is', 'a', 'diligent'],['are', 'my', 'comfort', 'and', 'some'],['them', 'that', 'both', 'human', 'nature'],['enemy', 'made', 'a', 'last', 'desperate'],['connected', 'with', 'the', 'wilderness', 'campaign'],['the', 'race', 'statistics', 'of', 'the'],['something', 'dreadful', 'has', 'happened', 'to'],['with', 'no', 'obstruction', 'between', 'us'],['she', 'might', 'risk', 'such', 'a'],['stood', 'in', 'corner', 'and', 'was'],['book', 'and', 'try', 'not', 'only'],['can', 'thank', 'you', 'enough', 'for'],['capture', 'it', 'again', 'and', 'give'],['shall', 'regard', 'them', 'as', 'having'],['lust', 'of', 'adventure', 'and', 'in'],['notable', 'that', 'though', 'she', 'never'],['that', 'her', 'temper', 'is', 'intractable']]
@@ -79,7 +92,6 @@
 		function get_trial_text(ordered, shuffled) {
 			var random_words_string = shuffled.join(' </a><a>');
 			var random_words_string = '<a>' + random_words_string + ' </a>'
-			// console.log(random_words_string)
 			var output_1 = '<p id=\'word-choices\'>'+random_words_string+"</p>"
 			var output_2 = "<p>"
 			ordered.forEach(function(each){
@@ -225,15 +237,16 @@
 		};
 		timeline.push(debrief_block);
 
+		// let ppn = jsPsych.data.urlVariables()['ppn']
 		// call the saveData function after the experiment is over
 		jsPsych.init({
 	       timeline: timeline,
 		   // code to define the experiment structure would go here...
-            on_finish: function (data) {    
-            	jsPsych.data.displayData('json');
-            	console.log(data.values())
-            	proliferate.submit({"trials": data.values()});
+            on_finish: function (data) {  
+            	console.log(ppn)  
+            	proliferate.submit({"trials": data.values(), "participant_num": ppn});
                 document.body.innerHTML = '<p> Please wait. You will be redirected back to Prolific in a few moments.</p>'
+                // window.location.assign("")
                 setTimeout(function () { location.href = "https://app.prolific.co/submissions/complete?cc=55132A98" }, 3000)
             }
 		});
