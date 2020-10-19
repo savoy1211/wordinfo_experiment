@@ -230,11 +230,11 @@
 	       timeline: timeline,
 		   // code to define the experiment structure would go here...
             on_finish: function (data) {    
-            	// jsPsych.data.displayData('json');
-            	console.log(data)
-            	// proliferate.submit({"trials": data.values()});
-                // document.body.innerHTML = '<p> Please wait. You will be redirected back to Prolific in a few moments.</p>'
-                // setTimeout(function () { location.href = "https://app.prolific.co/submissions/complete?cc=55132A98" }, 3000)
+            	jsPsych.data.displayData('json');
+            	console.log(data.values())
+            	proliferate.submit({"trials": data.values()});
+                document.body.innerHTML = '<p> Please wait. You will be redirected back to Prolific in a few moments.</p>'
+                setTimeout(function () { location.href = "https://app.prolific.co/submissions/complete?cc=55132A98" }, 3000)
             }
 		});
 
