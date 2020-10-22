@@ -120,7 +120,7 @@ jsPsych.plugins['cloze'] = (function () {
                     'total_score': score
                 };
 
-                display_element.innerHTML = '';
+                display_element.innerHTML = '<img src="star.gif" width=500</img><p>Press spacebar to continue.</p>';
                 jsPsych.finishTrial(trial_data);
             }
             else
