@@ -6,6 +6,7 @@
 		<script src="jspsych-6.1.0/plugins/jspsych-survey-text.js"></script>
 		<script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
 		<script src="jspsych-6.1.0/plugins/jspsych-cloze.js"></script>
+		<script src="jspsych-6.1.0/plugins/jspsych-cloze-blank.js"></script>
 		<script src="jspsych-6.1.0/plugins/jspsych-animation.js"></script>
 		<script src="https://proliferate.alps.science/static/js/proliferate.js" type="text/javascript"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -19,14 +20,13 @@
 		// The timeline array contains the set of trials we want to run in the experiment
 		var timeline = [];	
 
-		// var ppn_form = {
-		// 	type: 'survey-text',
-		// 	questions: [{prompt: "Please enter your participant number.", name: "ppn"}],
-		// 	on_finish: function(data){
-		// 		ppn = JSON.parse(data['responses'])['ppn'] // get ppn from trial data
-		// 	}
-		// };
-		// timeline.push(ppn_form)
+		var legal = {
+			type: 'html-keyboard-response',
+			stimulus: '<p>University of California, Irvine Language Processing Group</p>'+
+    		'<p id="legal">By answering the following questions, you are participating in a study being performed by cognitive scientists in the University of California, Irvine Department of Language Science. If you have questions about this research, please contact Richard Futrell at rfutrell@uci.edu or Ryan Lee, at leerk3@uci.edu. You must be at least 18 years old to participate. Your participation in this research is voluntary. You may decline to answer any or all of the following questions. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.</p>' +
+    		'<p>Press spacebar to continue.</p>'
+		};
+		timeline.push(legal)
 
 		// Define welcome message trial
 		var welcome = {
@@ -68,7 +68,7 @@
 		  type: "html-keyboard-response",
 		  stimulus: "<p>If you successfully match the original order for all trials, you will receive a bonus.</p>" +
 		      "<p>Good luck!</p>" +
-		      "<p>Press spacebar to begin.</p>",
+		      "<p>Press spacebar to continue.</p>",
 	      // post_trial_gap: 1000
 		};
 		timeline.push(bonus);
@@ -134,7 +134,7 @@
 		shuffle(pre_remaining_set)
 		var remaining_set = pre_remaining_set
 		test_stimuli = test_stimuli.concat(first_set)
-		test_stimuli = test_stimuli.concat(remaining_set)
+		// test_stimuli = test_stimuli.concat(remaining_set)
 
 		var fixation = {
 		  type: 'html-keyboard-response',
@@ -243,11 +243,58 @@
 		    return "<p>You responded correctly on "+accuracy+"% of the trials.</p>"+
 		    "<p>Despite this, we've decided to award you the bonus anyway. Congratulations!</p>"+
 		    "<img src='star.gif'></img>"+
-		    "<p>Press any key to complete the experiment. Thank you!</p>";
+		    "<p>Press any key to continue. Thank you!</p>";
 
 		  }
 		};
 		timeline.push(debrief_block);
+
+		var survey = {
+ 			type: 'cloze-blank',
+		    text: '<p>Please be sure to click submit to end the experiment.</p>'+
+		  '<p class="info">Answering these questions is optional, but will help us understand your answers.</p>'+  
+	      '<p>Did you read the instructions and do you think you did the experiment correctly?</p>'+
+	      '<label><input type="radio"  name="assess" value="No"/>No</label>'+
+	      '<label><input type="radio"  name="assess" value="Yes"/>Yes</label>'+
+	      '<label><input type="radio"  name="assess" value="Confused"/>I was confused</label>'+
+	      '<p>Gender: '+
+	        '<select id="gender">'+
+	          '<label><option value=""/></label>'+
+	          '<label><option value="Male"/>Male</label>'+
+	          '<label><option value="Female"/>Female</label>'+
+	          '<label><option value="Other"/>Other</label>'+
+	        '</select>'+
+	      '</p>'+
+	      '<p>Age: <input type="text" id="age"/></p>'+
+	      '<p>Level Of Education: '+
+	        '<select id="education">'+
+	          '<label><option value="-1"/></label>'+
+	          '<label><option value="0"/>Some High School</label>'+
+	          '<label><option value="1"/>Graduated High School</label>'+
+	          '<label><option value="2"/>Some College</label>'+
+	          '<label><option value="3"/>Graduated College</label>'+
+	          '<label><option value="4"/>Hold a higher degree</label>'+
+	        '</select>'+
+	      '</p>'+
+	      '<p>Native Language: <input type="text" id="language"/></p>'+
+	      '<label>(the language(s) spoken at home when you were a child)</label>'+
+	     ' <p>Did you enjoy the experiment?</p>'+
+	      '<select id="enjoyment">'+
+	       ' <label><option value="-1"></option></label>'+
+	        '<label><option value="0">Worse than the average experiment</option></label>'+
+	        '<label><option value="1" >An average experiment</option></label>'+
+	        '<label><option value="2">Better than average experiment</option></label>'+
+	      '</select>'+
+
+	      '<p>We would be interested in any comments you have about this experiment. Please type them here:</p>'+
+	      '<textarea id="comments" rows="3" cols="50"></textarea>'+
+	      '<br/>'
+	      ,
+		    check_answers: false,
+		    button_text: 'Submit',
+		};
+		timeline.push(survey);
+
 
 		// let ppn = jsPsych.data.urlVariables()['ppn']
 		let ppn = jsPsych.data.urlVariables()
