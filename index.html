@@ -19,14 +19,14 @@
 		// The timeline array contains the set of trials we want to run in the experiment
 		var timeline = [];	
 
-		// var ppn_form = {
-		// 	type: 'survey-text',
-		// 	questions: [{prompt: "Please enter your participant number.", name: "ppn"}],
-		// 	on_finish: function(data){
-		// 		ppn = JSON.parse(data['responses'])['ppn'] // get ppn from trial data
-		// 	}
-		// };
-		// timeline.push(ppn_form)
+		var ppn_form = {
+			type: 'survey-text',
+			questions: [{prompt: "Please enter your participant number.", name: "ppn"}],
+			on_finish: function(data){
+				ppn = JSON.parse(data['responses'])['ppn'] // get ppn from trial data
+			}
+		};
+		timeline.push(ppn_form)
 
 		// Define welcome message trial
 		var welcome = {
@@ -62,6 +62,16 @@
 	      // post_trial_gap: 1000
 		};
 		timeline.push(notes);
+
+		// Define notes trial
+		var bonus = {
+		  type: "html-keyboard-response",
+		  stimulus: "<p>If you successfully match the original order for all trials, you will receive a bonus.</p>" +
+		      "<p>Good luck!</p>" +
+		      "<p>Press spacebar to begin.</p>",
+	      // post_trial_gap: 1000
+		};
+		timeline.push(bonus);
 
 		var most_likely_pre = [['you', 'will', 'come', 'to', 'me'],['he', 'had', 'to', 'be', 'taken'],['in', 'order', 'to', 'get', 'to'],['it', 'is', 'not', 'necessary', 'to'],['she', 'could', 'not', 'understand', 'how'],['a', 'great', 'deal', 'more', 'of'],['that', 'he', 'had', 'done', 'his'],['be', 'able', 'to', 'believe', 'that'],['did', 'not', 'know', 'that', 'his'],['that', 'he', 'would', 'not', 'understand'],['it', 'was', 'not', 'so', 'with'],['he', 'went', 'back', 'to', 'his'],['and', 'it', 'was', 'just', 'as'],['that', 'in', 'spite', 'of', 'his'],['he', 'felt', 'that', 'he', 'was'],['to', 'know', 'what', 'to', 'do'],['as', 'well', 'as', 'in', 'the'],['the', 'rest', 'of', 'the', 'world'],['and', 'you', 'will', 'not', 'be'],['there', 'was', 'no', 'time', 'to']]
 
@@ -138,7 +148,7 @@
 		  	if(last_trial_correct.values()[0].correct){
 		  		return '<img src="correct.png" width=100</img><p>Correct!</p>'
 		  	} else{
-		  		return '<p>Wrong.</p>'
+		  		return '<p>Wrong.<p>'
 		  	}
 		  },
 		  choices: jsPsych.NO_KEYS,
@@ -147,7 +157,7 @@
 		  	if(last_trial_correct.values()[0].correct){
 		  		return 1000
 		  	} else{
-		  		return 3000
+		  		return 4000
 		  	}
 		  },
 	      data: {test_part: 'fixation'}
@@ -239,7 +249,11 @@
 		};
 		timeline.push(debrief_block);
 
-		// let ppn = jsPsych.data.urlVariables()['ppn']
+		let ppn = jsPsych.data.urlVariables()['ppn']
+		// let ppn = jsPsych.data.urlVariables()
+		console.log(ppn)
+		console.log("HELLO")
+
 		// call the saveData function after the experiment is over
 		jsPsych.init({
 	       timeline: timeline,
