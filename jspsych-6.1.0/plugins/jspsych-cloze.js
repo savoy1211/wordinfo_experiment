@@ -57,7 +57,7 @@ jsPsych.plugins['cloze'] = (function () {
     };
 
     plugin.trial = function (display_element, trial) {
-        console.log(jsPsych.currentTrial())
+        // console.log(jsPsych.currentTrial())
         var html = '<div class="cloze">';
         var elements = trial.text.split('%');
         var solutions = [];

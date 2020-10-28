@@ -251,16 +251,13 @@
 
 		// let ppn = jsPsych.data.urlVariables()['ppn']
 		let ppn = jsPsych.data.urlVariables()
-		console.log(ppn)
-		console.log("HELLO")
-
 		// call the saveData function after the experiment is over
 		jsPsych.init({
 	       timeline: timeline,
 		   // code to define the experiment structure would go here...
             on_finish: function (data) {  
             	// console.log(ppn)  
-            	proliferate.submit({"trials": data.values(), "participant_num": ppn});
+            	proliferate.submit({"trials": data.values(), "participant_id": ppn['participant_id'], "experiment_id": ppn['experiment_id']});
                 document.body.innerHTML = '<p> Please wait. You will be redirected back to Prolific in a few moments.</p>'
                 // window.location.assign("")
                 setTimeout(function () { location.href = "https://app.prolific.co/submissions/complete?cc=55132A98" }, 3000)
