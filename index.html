@@ -19,14 +19,14 @@
 		// The timeline array contains the set of trials we want to run in the experiment
 		var timeline = [];	
 
-		var ppn_form = {
-			type: 'survey-text',
-			questions: [{prompt: "Please enter your participant number.", name: "ppn"}],
-			on_finish: function(data){
-				ppn = JSON.parse(data['responses'])['ppn'] // get ppn from trial data
-			}
-		};
-		timeline.push(ppn_form)
+		// var ppn_form = {
+		// 	type: 'survey-text',
+		// 	questions: [{prompt: "Please enter your participant number.", name: "ppn"}],
+		// 	on_finish: function(data){
+		// 		ppn = JSON.parse(data['responses'])['ppn'] // get ppn from trial data
+		// 	}
+		// };
+		// timeline.push(ppn_form)
 
 		// Define welcome message trial
 		var welcome = {
