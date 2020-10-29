@@ -66,41 +66,19 @@ jsPsych.plugins['cloze-blank'] = (function () {
                 
         var check = function() {
 
-            var answers = [];
-            var answers_correct = true;
+            var trial_data = {
+                'understanding': document.getElementById("understanding").selectedOptions[0].text,
+                'gender' : document.getElementById("gender").value,
+                'age' : document.getElementById("age").value,
+                'education_level': document.getElementById("education").selectedOptions[0].text,
+                'native_language': document.getElementById("language").value,
+                'enjoyment': document.getElementById("enjoyment").selectedOptions[0].text,
+                'comments': document.getElementById("comments").value
+            };
 
-            for (var i=0; i<solutions.length; i++)
-            {
-                var field = document.getElementById('input'+i);
-                answers.push(field.value.trim());
-                
-                if (trial.check_answers)
-                {
-                    if (answers[i] !== solutions[i])
-                    {
-                        field.style.color = 'red';
-                        answers_correct = false;
-                    }
-                    else
-                    {
-                        field.style.color = 'black';
-                    }
-                }
-            }
-            
-            if (!trial.check_answers || (trial.check_answers && answers_correct))
-            {
-                var trial_data = {
-                    'answers' : answers
-                };
+            display_element.innerHTML = '';
+            jsPsych.finishTrial(trial_data);
 
-                display_element.innerHTML = '';
-                jsPsych.finishTrial(trial_data);
-            }
-            else
-            {
-                trial.mistake_fn();
-            }
                 
         };
         

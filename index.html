@@ -39,12 +39,13 @@
 		// Define instructions trial
 		var instructions = {
 		  type: "html-keyboard-response",
-		  stimulus: "<p>Please read the instructions carefully. You will not be able to go back pages.</p>" + 
-		  	  "<p>In this experiment, five words taken from a sentence will appear in scrambled order.</p>" +
-		  	  "<p>Your job is to rearrange the words to match the original order.</p>" +
+		  stimulus: 
+		  	  "<p>A five-word sequence taken from a sentence will be given to you in random order.</p>"+
+		  	  "<p>Your task is to rearrange the words to match the original order from which they came.</p>" +
+		  	  "<p>However, you will not be given the original sentence.</p>"+
 		      "<p>For example:</p>" +
 		      // '<img src="jspsych-6.1.0/css/img/opening_example.gif" width="780"></img>'+
-		      "<video width='852' height='480' controls><source src='sentence_example_(quicker).mp4' type='video/mp4'></video>"+
+		      "<video width='852' height='480' controls><source src='first_example_3.mp4' type='video/mp4'></video>"+
 		      "<p>Press spacebar to continue with the instructions.</p>",
 	      // post_trial_gap: 2000
 		};
@@ -58,6 +59,7 @@
 		      "<video width='852' height='480' controls><source src='note1_example_(quicker).mp4' type='video/mp4'></video>"+
 		      "<p>2. If you encounter multiple possibilities like this, just pick one order.</p>" +
 		      "<video width='852' height='480' controls><source src='note2_example_final.mp4' type='video/mp4'></video>"+
+		      "<p>You will be given the option to re-randomize the words and clear your input.</p>"+
 		      "<p>Press spacebar to continue.</p>",
 	      // post_trial_gap: 1000
 		};
@@ -106,7 +108,7 @@
 			ordered.forEach(function(each){
 				output_2 += "%" + each + "%"
 			})
-			output_2 += '</p><button class=\'randomize\'>Randomize word order</button><button class=\'clear\'>Clear</button>'
+			output_2 += '</p><button class=\'randomize\'>Re-randomize word order</button><button class=\'clear\'>Clear</button>'
 			return output_1+output_2
 		}		
 
@@ -253,10 +255,14 @@
  			type: 'cloze-blank',
 		    text: '<p>Please be sure to click submit to end the experiment.</p>'+
 		  '<p class="info">Answering these questions is optional, but will help us understand your answers.</p>'+  
-	      '<p>Did you read the instructions and do you think you did the experiment correctly?</p>'+
-	      '<label><input type="radio"  name="assess" value="No"/>No</label>'+
-	      '<label><input type="radio"  name="assess" value="Yes"/>Yes</label>'+
-	      '<label><input type="radio"  name="assess" value="Confused"/>I was confused</label>'+
+	      '<p>Did you read the instructions and do you think you did the experiment correctly? '+
+	      	  '<select id="understanding">'+
+	          '<label><option value=""/></label>'+
+	          '<label><option value="No"/>No</label>'+
+	          '<label><option value="Yes"/>Yes</label>'+
+	          '<label><option value="Confused"/>I was confused</label>'+
+	          '</select>'+
+	      '</p>'+
 	      '<p>Gender: '+
 	        '<select id="gender">'+
 	          '<label><option value=""/></label>'+
@@ -285,7 +291,6 @@
 	        '<label><option value="1" >An average experiment</option></label>'+
 	        '<label><option value="2">Better than average experiment</option></label>'+
 	      '</select>'+
-
 	      '<p>We would be interested in any comments you have about this experiment. Please type them here:</p>'+
 	      '<textarea id="comments" rows="3" cols="50"></textarea>'+
 	      '<br/>'
