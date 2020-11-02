@@ -136,7 +136,7 @@
 		shuffle(pre_remaining_set)
 		var remaining_set = pre_remaining_set
 		test_stimuli = test_stimuli.concat(first_set)
-		// test_stimuli = test_stimuli.concat(remaining_set)
+		test_stimuli = test_stimuli.concat(remaining_set)
 
 		var fixation = {
 		  type: 'html-keyboard-response',
@@ -308,7 +308,7 @@
 	       timeline: timeline,
 		   // code to define the experiment structure would go here...
             on_finish: function (data) {  
-            	// console.log(ppn)  
+            	console.log(data.values())  
             	proliferate.submit({"trials": data.values(), "participant_id": ppn['participant_id'], "experiment_id": ppn['experiment_id']});
                 document.body.innerHTML = '<p> Please wait. You will be redirected back to Prolific in a few moments.</p>'
                 // window.location.assign("")
