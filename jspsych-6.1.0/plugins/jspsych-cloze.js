@@ -77,7 +77,7 @@ jsPsych.plugins['cloze'] = (function () {
         }
         html += '<p>Score: <a>'+score.toString()+'</a></p></div>';
         
-        var trial_count = '<p>Trial #'+trial_num+' out of 60</p>'
+        var trial_count = '<p>Trial #'+trial_num+' out of 30</p>'
         display_element.innerHTML = '<a target="_blank" href="instructions.html"><button id="instructions">Re-read instructions</button></a>'+ trial_count + html;
         var check = function() {
 
