@@ -23,15 +23,15 @@
 		var legal = {
 			type: 'html-keyboard-response',
 			stimulus: '<p>University of California, Irvine Language Processing Group</p>'+
-    		'<p id="legal">By answering the following questions, you are participating in a study being performed by cognitive scientists in the University of California, Irvine Department of Language Science. If you have questions about this research, please contact Richard Futrell at rfutrell@uci.edu or Ryan Lee, at leerk3@uci.edu. You must be at least 18 years old to participate. Your participation in this research is voluntary. You may decline to answer any or all of the following questions. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.</p>' +
-    		'<p>Press spacebar to continue.</p>'
+    		'<p id="legal">Met het beantwoorden van de volgende vragen neem je deel aan een studie die wordt uitgevoerd door onderzoekers van de University of California, Irvine Department of Language Science. Mocht u vragen hebben over dit onderzoek, dan kunt u deze vragen stellen via email aan Richard Futrell op rfutrell@uci.edu of aan Ryan Lee op leerk3@uci.edu. Je moet minimaal 18 jaar oud zijn om deel te nemen aan deze studie. Je deelname is geheel vrijwillig. Je hebt het recht om enkele of alle vragen in deze studie weigeren te beantwoorden. Je hebt het recht om op ieder moment tijdens de studie verdere deelname te weigeren zonder nadelige gevolgen. Je anoniemiteit is verzekerd; de onderzoekers die jou hebben gevraagd voor deelname aan het onderzoek ontvangen geen persoonlijke informatie over jou. </p>' +
+    		'<p>Druk op de spatiebalk om te beginnen</p>'
 		};
 		timeline.push(legal)
 
 		// Define welcome message trial
 		var welcome = {
 			type: 'html-keyboard-response',
-			stimulus: 'Welcome to the experiment. Press spacebar to begin.'
+			stimulus: 'Welkom bij het experiment.'
 		};
 		timeline.push(welcome);
 
@@ -40,13 +40,13 @@
 		var instructions = {
 		  type: "html-keyboard-response",
 		  stimulus: 
-		  	  "<p>A five-word sequence taken from a sentence will be given to you in random order.</p>"+
-		  	  "<p>Your task is to rearrange the words to match the original order from which they came.</p>" +
-		  	  "<p>However, you will not be given the original sentence.</p>"+
-		      "<p>For example:</p>" +
+		  	  "<p>Je krijgt een reeks van vijf woorden uit een zin in een willekeurige volgorde.</p>"+
+		  	  "<p>Het is jouw taak om de woorden te herschikken in de volgorde van de oorspronkelijke zin</p>" +
+		  	  "<p>Echter, je krijgt de oorspronkelijke zin niet te zien.</p>"+
+		      "<p>Bijvoorbeeld:</p>" +
 		      // '<img src="jspsych-6.1.0/css/img/opening_example.gif" width="780"></img>'+
-		      "<video width='852' height='480' controls><source src='first_example_3.mp4' type='video/mp4'></video>"+
-		      "<p>Press spacebar to continue with the instructions.</p>",
+		      "<video width='852' height='480' controls><source src='DUTCH_video1.mp4' type='video/mp4'></video>"+
+		      "<p>Druk op de spatiebalk om verder te gaan met de instructies. </p>",
 	      // post_trial_gap: 2000
 		};
 		timeline.push(instructions);
@@ -54,13 +54,13 @@
 		// Define notes trial
 		var notes = {
 		  type: "html-keyboard-response",
-		  stimulus: "<p>Note two things.</p>" +
-		      "<p>1. The five words may have been taken from any point within a sentence.</p>" +
-		      "<video width='852' height='480' controls><source src='note1_example_(quicker).mp4' type='video/mp4'></video>"+
-		      "<p>2. If you encounter multiple possibilities like this, just pick one order.</p>" +
+		  stimulus: "<p>Let op twee dingen:</p>" +
+		      "<p>1. De vijf woorden kunnen zijn geselecteerd vanaf elk punt in de zin. </p>" +
+		      "<video width='852' height='480' controls><source src='DUTCH_video2-1.mp4' type='video/mp4'></video>"+
+		      "<p>2. Wanneer je meerdere mogelijkheden ziet, kies je er gewoon één.</p>" +
 		      "<video width='852' height='480' controls><source src='note2_example_final.mp4' type='video/mp4'></video>"+
-		      "<p>You will be given the option to re-randomize the words and clear your input.</p>"+
-		      "<p>Press spacebar to continue.</p>",
+		      "<p>Je krijgt de opties om de woorden opnieuw te schudden en om je ingevoerde antwoord te wissen.</p>"+
+		      "<p>Druk op de spatiebalk om verder te gaan met de instructies.</p>",
 	      // post_trial_gap: 1000
 		};
 		timeline.push(notes);
@@ -68,22 +68,24 @@
 		// Define notes trial
 		var bonus = {
 		  type: "html-keyboard-response",
-		  stimulus: "<p>If you successfully match the original order for all trials, you will receive a bonus.</p>" +
-		      "<p>Good luck!</p>" +
-		      "<p>Press spacebar to continue.</p>",
+		  stimulus: "<p>Je krijgt een bonus als het je lukt om de oorspronkelijke volgorde te vinden voor alle woordreeksen.</p>" +
+		      "<p>Succes! </p>" +
+		      "<p>Druk op de spatiebalk om te beginnen.</p>",
 	      // post_trial_gap: 1000
 		};
 		timeline.push(bonus);
 
-		var most_likely_pre = [['you', 'will', 'come', 'to', 'me'],['he', 'had', 'to', 'be', 'taken'],['in', 'order', 'to', 'get', 'to'],['it', 'is', 'not', 'necessary', 'to'],['she', 'could', 'not', 'understand', 'how'],['a', 'great', 'deal', 'more', 'of'],['that', 'he', 'had', 'done', 'his'],['be', 'able', 'to', 'believe', 'that'],['did', 'not', 'know', 'that', 'his'],['that', 'he', 'would', 'not', 'understand'],['it', 'was', 'not', 'so', 'with'],['he', 'went', 'back', 'to', 'his'],['and', 'it', 'was', 'just', 'as'],['that', 'in', 'spite', 'of', 'his'],['he', 'felt', 'that', 'he', 'was'],['to', 'know', 'what', 'to', 'do'],['as', 'well', 'as', 'in', 'the'],['the', 'rest', 'of', 'the', 'world'],['and', 'you', 'will', 'not', 'be'],['there', 'was', 'no', 'time', 'to']]
+		var sentence_dict = {'op,een,afstand,van,vijftien': 'Maar dit meer bevond zich nog op een afstand van vijftien kilometers, en wij moesten opgeven het voor den nacht te bereiken.', 'dat,zij,in,het,geheel': 'Het toeval, louter het toeval bragt hen terug op dat schip, dat zij in het geheel niet verwacht hadden weer te zien!','van,tijd,tot,tijd,met': 'Den 27sten Februari 1854 lagen twee mannen aan den voet van een ontzaglijken treurwilg met elkander te praten en keken van tijd tot tijd met de grootste oplettendheid naar den stroom.','in,plaats,van,een,der': 'Ik bleef den geheelen nacht op het dek, in plaats van een der lieden te wekken, om mij af te lossen; en niets bragt mijn gemoed tot bedaren, dan het plegtige besluit dat ik opvatte, om in den wil van God te berusten, en met dankbaarheid, indien ik kon, of toch met onderwerping aan te nemen, wat Hij beslissen mogt, dat mijn lot moest wezen.','op,de,deur,van,de': 'Onder het drinken van eenige glazen brandewijn en het rooken van cigaren wordt er eene proclamatie in den vorm opgemaakt, die de gevlugte Prue aanmaant terug te keeren, en den Sheriff van de County gelast, zulk eene magt met zich te nemen, als hij noodig oordeelt voor het zoeken en vervolgen der gevlugte, welke proclamatie, tot Prue\'s onderrigting, plegtig wordt aangeplakt op de deur van de geregtszaal, en "op zulke andere plaatsen als gezegde regterlijke ambtenaren zullen goedkeuren.','dat,hij,zich,niet,had': 'Toen men echter van alle kanten begon te vragen en te dringen, bekende hij eindelijk, dat hij zich niet had kunnen vereenigen met de gedachte, misschien jaren lang zijne geliefde bergtochten te moeten ontberen.','en,het,volk,in,het': 'Mijn zachtzinnigheid en goed gedrag hadden zulk een goeden indruk op den Keizer en zijn hof, ja ik mag wel zeggen op het leger en het volk in het algemeen gemaakt, dat ik de hoop ging koesteren binnenkort in vrijheid te worden gesteld.','nog,in,handen,van,de': 'Misschien, als hij nog in handen van de Indianen is.','een,laatsten,blik,op,de': 'Nu werpt hij een laatsten blik op de kolonies, die op\'t punt staan te verstijven.','op,dezelfde,wijze,waarop,zij': 'Op dezelfde wijze, waarop zij te werk is gegaan, zou het niet moeijelijk zijn een geducht argument zamen te stellen tegen de betrekking tusschen echtgenooten onderling, of tusschen ouders en hunne kinderen, of voogden en pupillen; want duizende vrouwen en kinderen en pupillen zijn mishandeld ja zelfs vermoord geworden.','dat,zal,ik,wel,doen': '"Dat zal ik wel doen," zeide Wilson.','in,de,vallei,waar,de': 'De jager en de astronoom staken een stok door de samengebonden pooten van het dier en laadden het op hunne schouders; zij verlieten den waterval en kwamen een halfuur daarna aan hun kamp in de vallei, waar de wagen door twee Boschjesmannen bewaakt werd.','van,den,weg,een,scherpe': 'En op hetzelfde oogenblik weerklonk links van den weg een scherpe, zeer vreemde kreet.','ik,geen,reden,waarom,ik': 'Ik zeide Zijne Majesteit, dat ik, ingevolge mijn belofte, gekomen was, en met verlof van den Keizer, mijn meester, om de eer te hebben een zoo machtigen vorst te zien, en hem de diensten aan te bieden die in mijn macht waren en niet strijdig met mijn plicht tegenover mijn eigen vorst; maar van mijn ongenade sprak ik geen woord, omdat ik tot dat oogenblik geen officieele kennisgeving er van gehad had en mij zelf beschouwen moest als heelemaal onbekend met zoo\'n soort plan; ook zag ik geen reden waarom ik den Keizer het geheim zou openbaren, terwijl ik buiten zijn bereik was; maar daarin bleek mij spoedig dat ik me had vergist.','gij,niet,in,zulk,een': 'En moet gij niet, in zulk een geval, Hem eere geven en dankbaar zijn, dat Hij u liever in dit leven voor uwe boosheid wilde straffen, dan uwe ziel daarvoor verderven in het volgende leven?','uw,ziel,is,nog,niet': 'Uw ziel is nog nietrijp.','laatsten,dag,van,mijn,leven': '"Met een gezigt vol van den grootsten ernst, antwoordde zij: "Welmevrouw, de Heer Jezus kwam en sprak tegen mij, weet ge; en nooit,tot op den laatsten dag van mijn leven, zal ik vergeten wat Hij tegenmij zeide.','zij,en,hare,kinderen,vrij': 'Zijne moeder was eene fraaije quadrone, de dochter van haren meesteren door hem ten huwelijk gegeven aan eenen vrijen blanke, een Schot,met uitdrukkelijke afspraak, dat zij en hare kinderen vrij zoudenzijn.','zijn,en,dan,telkens,weer': 'Maarzóó dicht bij de vervulling van een lang gekoesterden wensch te zijnen dan telkens weer zijn geduld op de proef te zien gesteld, is dantoch ook bijna niet te dragen.','en,vreeselijk,om,aan,te': 'Zij waren van reusachtige grootte,in dierenvellen gehuld en vreeselijk om aan te zien.','zich,in,nog,digter,rookwolken': 'Toen Mac Nabbs alleen gebleven was, praatte hij ouder gewoonte in zichzelven, maar zonder zich ooit tegen te spreken, terwijl hij zich in nogdigter rookwolken hulde; hij bleef stokstijf staan en keek op hetachterschip naar het zog van het jagt.','waar,de,noordelijken,mij,niet': 'Geen enkel Engelsch schip is nog tot dievaarwaters doorgedrongen, behalve de Bermuda, die zal ik navolgen,en als mijn schip weinig diepgang heeft, ga \'k waar de Noordelijkenmij niet kunnen volgen.','een,hooger,standpunt,dan,we': 'Vanzeker oogpunt bezien hebben wij hier een proef op de som met betrekkingtot het meest onberekenbaar deel van ons wezen; we hebben hier te doenmet de lotgevallen van zich opvolgende geslachten, die wij kunnenoverzien van een hooger standpunt dan we ooit bereiken bij debeschouwing van de lotgevallen der menschen.','gij,mij,onverdiend,schande,gij': 'Deedt gij mij, onverdiend,schande--gij zoudt menigen goeden vriend verliezen.','af,en,elegast,reed,vooruit': 'De Koning steeg aanstonds af, en Elegast reedvooruit op den weg, dien hij had aangewezen.','capsarii,in,het,frigidarium,of': 'Langs den oever van de rivier, die zich strekte als een eindeloosuitgeplette reep blik, op het strand dat naar de zon duiddede alseen lange vieil-or-kleurig-gehandschoende voorvinger, promeneerden dematronae in stola en palla, de meritrices in palla en stola, stroomdenzij uit de Thermen, nog na-boudeerend over de duurte van de tesserae,die zij betaald hadden aan de ostiari, en de patriciërs, nog mopperendover de foia die zij volgens de mos hadden moeten aanbieden aan decapsarii in het frigidarium of het nog prijziger tepidarium, waarzij hun corpus hadden gebaad en geodorificeerd.','koppeltjes,in,het,straatje,staan': 'Lang nog bleven de andere zusters met koppeltjes in het straatje staan,geheimzinnig besprekend het mirakel van den dag.','honingkelken,en,de,geheime,gangen': 'In de doolhoven der honingkelken en degeheime gangen der helmknopjes moet ze den verborgen honing en \'tstuifmeel opsporen.','grylli,devastatorii,van,de,natuurkundigen': 'Deze dieren, de grylli devastatorii van de natuurkundigen,kwamen bij millioenen.','rousell,in,de,soto,te': 'Alsmede--terzelfder tijd nog gevangen gezet een neger, zich Claiborne noemende, zwart van kleur, 22 jaar oud, omtrent 140 pond zwaar, 5 voet lang, geen likteekens te zien; hij geeft voor aan kolonel Rousell, in de Soto te behooren.'}		
+		var likely_1 = [['op', 'een', 'afstand', 'van', 'vijftien'], ['dat', 'zij', 'in', 'het', 'geheel'], ['van', 'tijd', 'tot', 'tijd', 'met'], ['in', 'plaats', 'van', 'een', 'der'], ['op', 'de', 'deur', 'van', 'de']]
+		var likely_2 = [['dat', 'hij', 'zich', 'niet', 'had'], ['en', 'het', 'volk', 'in', 'het'], ['nog', 'in', 'handen', 'van', 'de'], ['een', 'laatsten', 'blik', 'op', 'de'], ['op', 'dezelfde', 'wijze', 'waarop', 'zij']]
+		var likely_3 = [['dat', 'zal', 'ik', 'wel', 'doen'], ['in', 'de', 'vallei', 'waar', 'de'], ['van', 'den', 'weg', 'een', 'scherpe'], ['ik', 'geen', 'reden', 'waarom', 'ik'], ['gij', 'niet', 'in', 'zulk', 'een']]
+		var likely_4 = [['uw', 'ziel', 'is', 'nog', 'niet'], ['laatsten', 'dag', 'van', 'mijn', 'leven'], ['zij', 'en', 'hare', 'kinderen', 'vrij'], ['zijn', 'en', 'dan', 'telkens', 'weer'], ['en', 'vreeselijk', 'om', 'aan', 'te']]
+		var likely_5 = [['zich', 'in', 'nog', 'digter', 'rookwolken'], ['waar', 'de', 'noordelijken', 'mij', 'niet'], ['een', 'hooger', 'standpunt', 'dan', 'we'], ['gij', 'mij', 'onverdiend', 'schande', 'gij'], ['af', 'en', 'elegast', 'reed', 'vooruit']]
+		var likely_6 = [['capsarii', 'in', 'het', 'frigidarium', 'of'], ['koppeltjes', 'in', 'het', 'straatje', 'staan'], ['honingkelken', 'en', 'de', 'geheime', 'gangen'], ['grylli', 'devastatorii', 'van', 'de', 'natuurkundigen'], ['rousell', 'in', 'de', 'soto', 'te']]
 
-		var mid_likely_pre = [['take', 'a', 'quiet', 'minute', 'and'],['the', 'slow', 'rise', 'of', 'the'],['met', 'though', 'he', 'and', 'my'],['most', 'famous', 'is', 'a', 'diligent'],['are', 'my', 'comfort', 'and', 'some'],['them', 'that', 'both', 'human', 'nature'],['enemy', 'made', 'a', 'last', 'desperate'],['connected', 'with', 'the', 'wilderness', 'campaign'],['the', 'race', 'statistics', 'of', 'the'],['something', 'dreadful', 'has', 'happened', 'to'],['with', 'no', 'obstruction', 'between', 'us'],['she', 'might', 'risk', 'such', 'a'],['stood', 'in', 'corner', 'and', 'was'],['book', 'and', 'try', 'not', 'only'],['can', 'thank', 'you', 'enough', 'for'],['capture', 'it', 'again', 'and', 'give'],['shall', 'regard', 'them', 'as', 'having'],['lust', 'of', 'adventure', 'and', 'in'],['notable', 'that', 'though', 'she', 'never'],['that', 'her', 'temper', 'is', 'intractable']]
-
-		var least_likely_pre = [['choppers', 'would', 'load', 'and', 'some'],['aggressions', 'upon', 'the', 'south', 'its'],['idealize', 'our', 'romance', 'and', 'our'],['coaling', 'company', 'has', 'paid', 'its'],['southernly', 'world', 'which', 'had', 'centuries'],['ineptitudes', 'or', 'thinks', 'the', 'worse'],['falsifies', 'for', 'itself', 'certain', 'traits'],['concatenation', 'of', 'circumstances', 'needed', 'the'],['vociferating', 'oaths', 'dreadful', 'to', 'hear'],['moralities', 'our', 'actions', 'shine', 'alternately'],['turquoise', 'rings', 'would', 'not', 'console'],['summarize', 'his', 'views', 'as', 'he'],['concessionnaires', 'are', 'in', 'question', 'goes'],['learner', 'or', 'will', 'attach', 'himself'],['fielding', 'displayed', 'a', 'quiet', 'gentle'],['foreword', 'this', 'little', 'volume', 'the'],['ornamental', 'rim', 'to', 'the', 'pipe'],['imminently', 'his', 'avaricious', 'and', 'unfeeling'],['shaper', 'and', 'author', 'of', 'environment'],['menageries', 'under', 'it', 'as', 'children']]
-
-		most_likely_pre.splice(0,10)
-		mid_likely_pre.splice(0,10)
-		least_likely_pre.splice(0,10)
+		// // most_likely_pre.splice(0,10)
+		// mid_likely_pre.splice(0,10)
+		// least_likely_pre.splice(0,10)
 
 		function shuffle(array) {
 		  var currentIndex = array.length, temporaryValue, randomIndex;
@@ -112,7 +114,7 @@
 			ordered.forEach(function(each){
 				output_2 += "%" + each + "%"
 			})
-			output_2 += '</p><button class=\'randomize\'>Re-randomize word order</button><button class=\'clear\'>Clear</button>'
+			output_2 += '</p><button class=\'randomize\'>Woordvolgorde herschudden </button><button class=\'clear\'>Wissen</button>'
 			return output_1+output_2
 		}		
 
@@ -126,20 +128,34 @@
 			return final_array
 		}
 
-		var most_likely = fill_array(most_likely_pre)
-		var mid_likely = fill_array(mid_likely_pre)
-		var least_likely = fill_array(least_likely_pre)
-		var test_stimuli = []
+		likely_1 = fill_array(likely_1)
+		likely_2 = fill_array(likely_2)
+		likely_3 = fill_array(likely_3)
+		likely_4 = fill_array(likely_4)
+		likely_5 = fill_array(likely_5)
+		likely_6 = fill_array(likely_6)
+		shuffle(likely_1)
+		shuffle(likely_2)
+		shuffle(likely_3)
+		shuffle(likely_4)
+		shuffle(likely_5)
+		shuffle(likely_6)
 
-		shuffle(least_likely)
-		shuffle(mid_likely)
-		shuffle(most_likely)
-		var first_set = most_likely.slice(0,3)
-		var pre_remaining_set = most_likely.slice(3).concat(mid_likely).concat(least_likely)
-		// var pre_remaining_set = most_likely.concat(mid_likely).concat(least_likely)
+		// likely_1 = likely_1.slice(0,5)
+		// likely_2 = likely_2.slice(0,5)
+		// likely_3 = likely_3.slice(0,5)
+		// likely_4 = likely_4.slice(0,5)
+		// likely_5 = likely_5.slice(0,5)
+		// likely_6 = likely_6.slice(0,5)
+
+		var test_stimuli = []
+		var first_set = likely_1.slice(0,3)
+		// var test_stimuli = likely_1.slice(0,3)
+		var pre_remaining_set = likely_1.slice(3).concat(likely_2).concat(likely_3).concat(likely_4).concat(likely_5).concat(likely_6)
+		var pre_remaining_set = most_likely.concat(mid_likely).concat(least_likely)
 		shuffle(pre_remaining_set)
 		var remaining_set = pre_remaining_set
-		test_stimuli = test_stimuli.concat(first_set)
+		// test_stimuli = test_stimuli.concat(first_set)
 		test_stimuli = test_stimuli.concat(remaining_set)
 
 		var fixation = {
@@ -151,28 +167,33 @@
 			    images[0].parentNode.removeChild(images[0]);
 			}
 		    var last_trial_correct = jsPsych.data.getLastTrialData();
+		    var key = jsPsych.data.getLastTrialData().values()[0].solution.toString()
+		    var response = jsPsych.data.getLastTrialData().values()[0].response.toString()
 		  	if(last_trial_correct.values()[0].correct){
-		  		return '<img src="correct.png" width=100</img><p>Correct!</p>'
+		  		return '<img src="correct.png" width=100</img><h2>Juist!</h2><h4>Je antwoord was: </h4><p>'+response+'</p><h4>Dit is de oorspronkelijke zin: </h4><p>'+sentence_dict[key]+'</p><p style="font-size:11px;">(Deze zin is uit een tekst van Project Gutenberg gehaald)</p><p style="font-size:11px;">Druk op de spatiebalk.</p>'
 		  	} else{
-		  		return '<p>Wrong.<p>'
+		  		return '<h2>Onjuist.</h2><h4>Je antwoord was: </h4><p>'+response+'</p><h4>Dit is het juiste antwoord en de oorspronkelijke zin:</h4><p>'+key+'</p><p>'+sentence_dict[key]+'</p><p style="font-size:11px;">(Deze zin is uit een tekst van Project Gutenberg gehaald)</p><p style="font-size:11px;">Druk op de spatiebalk.</p>'
+		  		// return '<p>Wrong.</p><p>Here was the original sentence:</p><p></p><p>Press any key to continue.</p>'
+
 		  	}
 		  },
-		  choices: jsPsych.NO_KEYS,
+		  choices: [' '],
 	      trial_duration: function(){
 		    var last_trial_correct = jsPsych.data.getLastTrialData();
 		  	if(last_trial_correct.values()[0].correct){
-		  		return 1000
+		  		return 60000
 		  	} else{
-		  		return 4000
+		  		return 60000
 		  	}
 		  },
 	      data: {test_part: 'fixation'}
 		};
+		
 		var trial = {
 		    type: 'cloze',
 		    text: jsPsych.timelineVariable('text'),
 		    check_answers: true,
-		    button_text: 'Next',
+		    button_text: 'Volgende',
 		    on_load: function(trial){
 			    var isTesting = document.getElementsByClassName('cloze');
 			    var inputs = isTesting[0].childNodes[1].childNodes
@@ -246,10 +267,10 @@
 		    var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
 		    var rt = Math.round(correct_trials.select('time_elapsed').mean())/1000;
 
-		    return "<p>You responded correctly on "+accuracy+"% of the trials.</p>"+
-		    "<p>Despite this, we've decided to award you the bonus anyway. Congratulations!</p>"+
+		    return "<p>Je hebt "+accuracy+"% van de woordreeksen juist herschikt.</p>"+
+		    "<p>Desondanks hebben we besloten je alsnog de bonus toe te kennen. Gefeliciteerd!</p>"+
 		    "<img src='star.gif'></img>"+
-		    "<p>Press any key to continue. Thank you!</p>";
+		    "<p>Druk op de spatiebalk.</p>";
 
 		  }
 		};
@@ -257,45 +278,45 @@
 
 		var survey = {
  			type: 'cloze-blank',
-		    text: '<p>Please be sure to click submit to end the experiment.</p>'+
-		  '<p class="info">Answering these questions is optional, but will help us understand your answers.</p>'+  
-	      '<p>Did you read the instructions and do you think you did the experiment correctly? '+
+		    text: '<p>Let er op dat je op ‘versturen’ klikt om het experiment te beëindigen. </p>'+
+		  '<p class="info">Het beantwoorden van deze vragen is optioneel maar zal ons helpen je antwoorden beter te begrijpen. </p>'+  
+	      '<p>Heb je de instructies gelezen en denk je dat je het experiment correct hebt uitgevoerd?'+
 	      	  '<select id="understanding">'+
 	          '<label><option value=""/></label>'+
-	          '<label><option value="No"/>No</label>'+
-	          '<label><option value="Yes"/>Yes</label>'+
-	          '<label><option value="Confused"/>I was confused</label>'+
+	          '<label><option value="No"/>Nee</label>'+
+	          '<label><option value="Yes"/>Ja</label>'+
+	          '<label><option value="Confused"/>ik was in de war</label>'+
 	          '</select>'+
 	      '</p>'+
-	      '<p>Gender: '+
+	      '<p>Geslacht: '+
 	        '<select id="gender">'+
 	          '<label><option value=""/></label>'+
-	          '<label><option value="Male"/>Male</label>'+
-	          '<label><option value="Female"/>Female</label>'+
-	          '<label><option value="Other"/>Other</label>'+
+	          '<label><option value="Male">Man</label>'+
+	          '<label><option value="Female"/>Vrouw</label>'+
+	          '<label><option value="Other"/>Anders</label>'+
 	        '</select>'+
 	      '</p>'+
-	      '<p>Age: <input type="text" id="age"/></p>'+
-	      '<p>Level Of Education: '+
+	      '<p>Leeftijd: <input type="text" id="age"/></p>'+
+	      '<p>Hoogst behaalde opleidingsniveau: '+
 	        '<select id="education">'+
 	          '<label><option value="-1"/></label>'+
-	          '<label><option value="0"/>Some High School</label>'+
-	          '<label><option value="1"/>Graduated High School</label>'+
-	          '<label><option value="2"/>Some College</label>'+
-	          '<label><option value="3"/>Graduated College</label>'+
-	          '<label><option value="4"/>Hold a higher degree</label>'+
+	          '<label><option value="0"/>Middelbare school onvoltooid</label>'+
+	          '<label><option value="1"/>Middelbare school</label>'+
+	          '<label><option value="2"/>MBO</label>'+
+	          '<label><option value="3"/>HBO/Bachelor</label>'+
+	          '<label><option value="4"/>Master, PhD</label>'+
 	        '</select>'+
 	      '</p>'+
-	      '<p>Native Language: <input type="text" id="language"/></p>'+
-	      '<label>(the language(s) spoken at home when you were a child)</label>'+
-	     ' <p>Did you enjoy the experiment?</p>'+
+	      '<p>Moedertaal: <input type="text" id="language"/></p>'+
+	      '<label> (de taal/talen die je als kind thuis sprak.)</label>'+
+	     ' <p>Vond je het een leuk experiment?</p>'+
 	      '<select id="enjoyment">'+
 	       ' <label><option value="-1"></option></label>'+
-	        '<label><option value="0">Worse than the average experiment</option></label>'+
-	        '<label><option value="1" >An average experiment</option></label>'+
-	        '<label><option value="2">Better than average experiment</option></label>'+
+	        '<label><option value="0">Minder leuk dan het gemiddelde experiment</option></label>'+
+	        '<label><option value="1" >Een gemiddeld experiment</option></label>'+
+	        '<label><option value="2">Leuker dan het gemiddelde experiment</option></label>'+
 	      '</select>'+
-	      '<p>We would be interested in any comments you have about this experiment. Please type them here:</p>'+
+	      '<p>We zijn erg geinteresseerd in wat je van het experiment vond. Schrijf hier eventuele verdere opmerkingen:</p>'+
 	      '<textarea id="comments" rows="3" cols="50"></textarea>'+
 	      '<br/>'
 	      ,
@@ -314,7 +335,7 @@
             on_finish: function (data) {  
             	console.log(data.values())  
             	proliferate.submit({"trials": data.values(), "participant_id": ppn['participant_id'], "experiment_id": ppn['experiment_id']});
-                document.body.innerHTML = '<p> Please wait. You will be redirected back to Prolific in a few moments.</p>'
+                document.body.innerHTML = '<p>Een moment alstublieft, u wordt zo snel mogelijk doorgestuurd naar Prolific. </p>'
                 // window.location.assign("")
                 setTimeout(function () { location.href = "https://app.prolific.co/submissions/complete?cc=4B1CD1C5" }, 3000)
             }

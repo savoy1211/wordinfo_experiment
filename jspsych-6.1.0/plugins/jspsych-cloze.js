@@ -75,10 +75,10 @@ jsPsych.plugins['cloze'] = (function () {
                 html += '<input type="text" id="input'+(solutions.length-1)+'" value="">';
             }
         }
-        html += '<p>Score: <a>'+score.toString()+'</a></p></div>';
+        html += '<p>Punten: <a>'+score.toString()+'</a></p></div>';
         
         var trial_count = '<p>Trial #'+trial_num+' out of 30</p>'
-        display_element.innerHTML = '<a target="_blank" href="instructions.html"><button id="instructions">Re-read instructions</button></a>'+ trial_count + html;
+        display_element.innerHTML = '<a target="_blank" href="instructions.html"><button id="instructions">Instructies herhalen</button></a>'+ trial_count + html;
         var check = function() {
 
             var answers = [];
@@ -101,7 +101,7 @@ jsPsych.plugins['cloze'] = (function () {
                         field.style.color = 'black';
                     }
                     if (!solutions.includes(answers[i])) {
-                        alert("Make sure each input matches one of the given words!")
+                        alert("Zorg ervoor dat elk ingevoerd woord overeenkomt met een woord uit de reeks!")
                         return;
                     }
                 }
@@ -119,7 +119,7 @@ jsPsych.plugins['cloze'] = (function () {
                     'total_score': score
                 };
 
-                display_element.innerHTML = '<img src="star.gif" width=500</img><p>Press spacebar to continue.</p>';
+                display_element.innerHTML = '<img src="star.gif" width=500</img><p>Druk op de spatiebalk.</p>';
                 jsPsych.finishTrial(trial_data);
             }
             else
@@ -144,7 +144,7 @@ jsPsych.plugins['cloze'] = (function () {
             }
         }
 
-        display_element.innerHTML += '<br><button class="jspsych-html-button-response-button" type="button" id="finish_cloze_button">'+trial.button_text+'</button><p style="font-size:10.5px;">Click Next or press Enter</p>';
+        display_element.innerHTML += '<br><button class="jspsych-html-button-response-button" type="button" id="finish_cloze_button">'+trial.button_text+'</button><p style="font-size:10.5px;">Klik Volgende of druk op Enter</p>';
         display_element.querySelector('.cloze').addEventListener('keydown', enter_check);
         display_element.querySelector('#finish_cloze_button').addEventListener('click', check);
 
